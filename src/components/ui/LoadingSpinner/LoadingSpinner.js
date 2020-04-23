@@ -1,10 +1,14 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 const LoadingSpinner = (props) => {
-	return props.show ? <div className="LoadingSpinner" /> : null;
+	return props.show ? (
+		<div className="LoadingSpinnerContainer">
+			<div className="lds-ripple">
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+	) : null;
 };
-
-LoadingSpinner.propTypes = {};
 
 export default LoadingSpinner;
