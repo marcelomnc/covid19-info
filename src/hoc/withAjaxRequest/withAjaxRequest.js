@@ -9,7 +9,7 @@ const withAjaxRequest = (WrappedComponent, axios) => {
 			ajaxRequestError: null,
 		};
 
-		componentWillMount = () => {
+		componentDidMount = () => {
 			this.reqInterceptor = axios.interceptors.request.use((request) => {
 				this.setState({
 					ajaxRequestInProcess: true,
@@ -47,7 +47,12 @@ const withAjaxRequest = (WrappedComponent, axios) => {
 					<LoadingSpinner show={this.state.ajaxRequestInProcess} />
 					<Modal
 						show={this.state.ajaxRequestError !== null}
-						onClickHandler={() => null}
+						onClickHandler={() => {
+							this.setState({
+								ajaxRequestInProcess: false,
+								ajaxRequestError: null,
+							});
+						}}
 					>
 						{this.state.ajaxRequestError !== null
 							? this.state.ajaxRequestError.message
