@@ -1,7 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
 import Header from "../../components/ui/Header/Header";
-import SummaryCharts from "../../components/SummaryCharts/SummaryCharts";
 import Footer from "../../components/ui/Footer/Footer";
 
 const Layout = (props) => {
@@ -13,7 +11,5 @@ const Layout = (props) => {
 		</div>
 	);
 };
-
-Layout.propTypes = {};
 
 export default Layout;
