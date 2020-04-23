@@ -2,12 +2,12 @@ import React from "react";
 
 const Table = (props) => {
 	return (
-		<div className="ABComparisonTable">
+		<div className="ABComparison__table">
 			<table>
 				<thead>
 					<tr>
 						<th colSpan="2">
-							<h5>{props.label}</h5>
+							<h2>{props.label}</h2>
 						</th>
 					</tr>
 				</thead>

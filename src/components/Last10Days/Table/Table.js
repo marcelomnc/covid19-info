@@ -2,24 +2,26 @@ import React from "react";
 
 const Table = (props) => {
 	return (
-		<div className="Last10DaysTable">
+		<div className="Last10Days__table">
 			<table>
 				<thead>
 					<tr>
-						<th colSpan="4">{props.label}</th>
+						<th colSpan="4">
+							<h2>{props.label}</h2>
+						</th>
 					</tr>
 					<tr>
 						<th>
-							<h5>{props.data.label}</h5>
+							<h3>{props.data.label}</h3>
 						</th>
 						<th>
-							<h5>{props.data.confirmed.label}</h5>
+							<h3>{props.data.confirmed.label}</h3>
 						</th>
 						<th>
-							<h5>{props.data.recovered.label}</h5>
+							<h3>{props.data.recovered.label}</h3>
 						</th>
 						<th>
-							<h5>{props.data.deaths.label}</h5>
+							<h3>{props.data.deaths.label}</h3>
 						</th>
 					</tr>
 				</thead>

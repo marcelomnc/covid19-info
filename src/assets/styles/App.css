@@ -120,7 +120,7 @@
 	grid-template-rows: repeat(2, 1fr);
 }
 
-.ABComparisonChart {
+.ABComparison__chart {
 	box-sizing: border-box;
 	background-color: #9eb3dd;
 	display: flex;
@@ -131,7 +131,7 @@
 	box-shadow: 20px 20px 10px black;
 }
 
-.ABComparisonTable {
+.ABComparison__table {
 	box-sizing: border-box;
 	background-color: #9eb3dd;
 	display: flex;
@@ -141,30 +141,30 @@
 	box-shadow: 20px 20px 10px black;
 }
 
-.ABComparisonTable > table {
+.ABComparison__table > table {
 	width: 100%;
 	height: 100%;
 }
 
-.ABComparisonTable > table th {
+.ABComparison__table > table th {
 	vertical-align: middle;
 	padding-bottom: 15px;
 }
 
-.ABComparisonTable > table td {
+.ABComparison__table > table td {
 	vertical-align: middle;
 	padding: 0 10px;
 }
 
-.ABComparisonTable tbody td {
+.ABComparison__table tbody td {
 	text-align: right;
 }
 
-.ABComparisonTable tbody td:nth-child(1) {
+.ABComparison__table tbody td:nth-child(1) {
 	text-align: center;
 }
 
-.ABComparisonTable tbody tr:nth-of-type(odd) {
+.ABComparison__table tbody tr:nth-of-type(odd) {
 	background-color: rgba(0, 0, 0, 0.05);
 }
 
@@ -173,7 +173,7 @@
 	display: flex;
 }
 
-.Last10DaysChart {
+.Last10Days__chart {
 	flex: 1;
 	box-sizing: border-box;
 	background-color: #9eb3dd;
@@ -185,7 +185,7 @@
 	box-shadow: 20px 20px 10px black;
 }
 
-.Last10DaysTable {
+.Last10Days__table {
 	flex: 1;
 	box-sizing: border-box;
 	background-color: #9eb3dd;
@@ -195,30 +195,30 @@
 	box-shadow: 20px 20px 10px black;
 }
 
-.Last10DaysTable > table {
+.Last10Days__table > table {
 	width: 100%;
 	height: 100%;
 }
 
-.Last10DaysTable > table th {
+.Last10Days__table > table th {
 	vertical-align: middle;
 	padding-bottom: 15px;
 }
 
-.Last10DaysTable > table td {
+.Last10Days__table > table td {
 	vertical-align: middle;
 	padding: 0 10px;
 }
 
-.Last10DaysTable tbody td {
+.Last10Days__table tbody td {
 	text-align: right;
 }
 
-.Last10DaysTable tbody td:nth-child(1) {
+.Last10Days__table tbody td:nth-child(1) {
 	text-align: center;
 }
 
-.Last10DaysTable tbody tr:nth-of-type(odd) {
+.Last10Days__table tbody tr:nth-of-type(odd) {
 	background-color: rgba(0, 0, 0, 0.05);
 }
 

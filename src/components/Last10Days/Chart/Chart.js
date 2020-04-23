@@ -13,7 +13,7 @@ const Chart = (props) => {
 	};
 
 	return (
-		<div className="Last10DaysChart">
+		<div className="Last10Days__chart">
 			<Bar data={props.data} legend={legendOpts} {...props} />
 		</div>
 	);
