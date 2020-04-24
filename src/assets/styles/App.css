@@ -4,6 +4,20 @@
 	font-family: "Roboto", sans-serif;
 }
 
+table h2 {
+	color: rgb(34, 41, 83);
+	font-size: large;
+	font-weight: 900;
+	overflow-wrap: anywhere;
+}
+
+table h3 {
+	color: rgb(34, 41, 83);
+	font-weight: 500;
+	font-size: medium;
+	overflow-wrap: anywhere;
+}
+
 .ModalShow {
 	box-sizing: border-box;
 	position: fixed;
@@ -146,18 +160,15 @@
 	height: 100%;
 }
 
-.ABComparison__table > table th {
-	vertical-align: middle;
+.ABComparison__table th {
 	padding-bottom: 15px;
 }
 
-.ABComparison__table > table td {
+.ABComparison__table td {
 	vertical-align: middle;
-	padding: 0 10px;
-}
-
-.ABComparison__table tbody td {
+	padding: 0 15px;
 	text-align: right;
+	width: 50%;
 }
 
 .ABComparison__table tbody td:nth-child(1) {
@@ -165,7 +176,28 @@
 }
 
 .ABComparison__table tbody tr:nth-of-type(odd) {
-	background-color: rgba(0, 0, 0, 0.05);
+	background-color: rgba(34, 41, 83, 0.8);
+}
+
+.ABComparison__table tbody tr:nth-of-type(even) {
+	background-color: rgba(34, 41, 83, 0.7);
+}
+
+.ABComparison__table tbody tr {
+	font-size: large;
+	font-weight: 700;
+}
+
+.ABComparison__table tbody tr:nth-child(1) {
+	color: rgb(18, 159, 194);
+}
+
+.ABComparison__table tbody tr:nth-child(2) {
+	color: rgb(16, 194, 37);
+}
+
+.ABComparison__table tbody tr:nth-child(3) {
+	color: rgb(231, 70, 49);
 }
 
 .Last10Days {
@@ -195,31 +227,57 @@
 	box-shadow: 20px 20px 10px black;
 }
 
-.Last10Days__table > table {
+.Last10Days__table table {
 	width: 100%;
 	height: 100%;
 }
 
-.Last10Days__table > table th {
-	vertical-align: middle;
+.Last10Days__table th {
 	padding-bottom: 15px;
 }
 
-.Last10Days__table > table td {
-	vertical-align: middle;
-	padding: 0 10px;
+.Last10Days__table thead > tr:nth-child(2) th {
+	padding-bottom: 5px;
 }
 
-.Last10Days__table tbody td {
+.Last10Days__table td {
+	padding: 0 15px;
 	text-align: right;
 }
 
-.Last10Days__table tbody td:nth-child(1) {
+.Last10Days__table td:nth-child(1) {
 	text-align: center;
+	font-size: medium;
+	color: white;
+	width: 34%;
 }
 
 .Last10Days__table tbody tr:nth-of-type(odd) {
-	background-color: rgba(0, 0, 0, 0.05);
+	background-color: rgba(34, 41, 83, 0.8);
+}
+
+.Last10Days__table tbody tr:nth-of-type(even) {
+	background-color: rgba(34, 41, 83, 0.7);
+}
+
+.Last10Days__table tbody td {
+	font-size: large;
+	font-weight: 700;
+}
+
+.Last10Days__table tbody td:nth-child(2) {
+	width: 22%;
+	color: rgb(18, 159, 194);
+}
+
+.Last10Days__table tbody td:nth-child(3) {
+	width: 22%;
+	color: rgb(16, 194, 37);
+}
+
+.Last10Days__table tbody td:nth-child(4) {
+	width: 22%;
+	color: rgb(231, 70, 49);
 }
 
 @media (max-width: 700px) {
