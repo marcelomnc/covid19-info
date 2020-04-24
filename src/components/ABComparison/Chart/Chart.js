@@ -13,8 +13,16 @@ const Chart = (props) => {
 	};
 
 	const borderColor = "rgba(255, 255, 255, 0.5)";
-	const backgroundColors = ["#f51b4e", "#10c225", "#000000"];
-	const hoverBackgroundColors = ["#db6782", "#6adb78", "#555555"];
+	const backgroundColors = [
+		"rgb(18, 159, 194)",
+		"rgb(16, 194, 37)",
+		"rgb(231, 70, 49)",
+	];
+	const hoverBackgroundColors = [
+		"rgba(18, 159, 194, 0.4)",
+		"rgba(16, 194, 37, 0.2)",
+		"rgba(231, 70, 49, 0.4)",
+	];
 
 	const data = {
 		labels: [
@@ -39,7 +47,7 @@ const Chart = (props) => {
 
 	return (
 		<div className="ABComparison__chart">
-			<Pie data={data} legend={legendOpts} height={90}/>
+			<Pie data={data} legend={legendOpts} height={90} />
 		</div>
 	);
 };
