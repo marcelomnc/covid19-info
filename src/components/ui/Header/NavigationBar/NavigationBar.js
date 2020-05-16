@@ -47,7 +47,7 @@ const NavigationBar = (props) => {
 						to="/lastDays/myCountry"
 						exact
 					>
-						Últimos 10 Días - Mi País
+						Últimos 7 Días - Mi País
 					</NavLink>
 				</li>
 				<li>
