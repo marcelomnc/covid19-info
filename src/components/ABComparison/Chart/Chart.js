@@ -47,7 +47,11 @@ const Chart = (props) => {
 
 	return (
 		<div className="ABComparison__chart">
-			<Pie data={data} legend={legendOpts} height={90} />
+			<Pie
+				data={data}
+				legend={legendOpts}
+				options={{ maintainAspectRatio: false }}
+			/>
 		</div>
 	);
 };
