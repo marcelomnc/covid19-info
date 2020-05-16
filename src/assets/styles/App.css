@@ -30,6 +30,7 @@ table h3 {
 	background-color: #f0e9e6;
 	box-shadow: 10px 10px 10px black;
 	transform: translateY(0);
+	text-align: center;
 	display: flex;
 	justify-content: center;
 	align-items: center;
