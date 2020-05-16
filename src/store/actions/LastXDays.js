@@ -1,28 +1,44 @@
-import * as actionTypes from "../actions/actionTypes";
+import * as actionTypes from "./actionTypes";
 import axios from "../../shared/Axios/Axios";
 
-const setFetchingLast10DaysData = () => {
+const setFetchingLastXDaysData = () => {
 	return {
-		type: actionTypes.SET_FETCHING_LAST_10_DAYS_DATA,
+		type: actionTypes.SET_FETCHING_LAST_X_DAYS_DATA,
 	};
 };
 
-const setLast10DaysData = (respConfirmed, respRecovered, respDeaths) => {
-	const data = buildDataFromResponse(respConfirmed, respRecovered, respDeaths);
+const setLastXDaysData = (
+	totalDays,
+	respConfirmed,
+	respRecovered,
+	respDeaths
+) => {
+	const data = buildDataFromResponse(
+		totalDays,
+		respConfirmed,
+		respRecovered,
+		respDeaths
+	);
 	return {
-		type: actionTypes.SET_LAST_10_DAYS_DATA,
+		type: actionTypes.SET_LAST_X_DAYS_DATA,
 		data: data,
 	};
 };
 
-const setErrorFetchingLast10DaysData = (error) => {
+const setErrorFetchingLastXDaysData = (totalDays, error) => {
 	return {
-		type: actionTypes.SET_ERROR_FETCHING_LAST_10_DAYS_DATA,
+		type: actionTypes.SET_ERROR_FETCHING_LAST_X_DAYS_DATA,
+		totalDays: totalDays,
 		error: error,
 	};
 };
 
-const buildDataFromResponse = (respConfirmed, respRecovered, respDeaths) => {
+const buildDataFromResponse = (
+	totalDays,
+	respConfirmed,
+	respRecovered,
+	respDeaths
+) => {
 	const confirmedLabel = "Confirmados";
 	const recoveredLabel = "Recuperados";
 	const deathsLabel = "Muertos";
@@ -90,7 +106,11 @@ const buildDataFromResponse = (respConfirmed, respRecovered, respDeaths) => {
 		},
 	};
 
-	for (let i = respConfirmed.length - 11; i < respConfirmed.length - 1; i++) {
+	for (
+		let i = respConfirmed.length - totalDays;
+		i <= respConfirmed.length - 1;
+		i++
+	) {
 		const date = new Date(respConfirmed[i].Date);
 		const formatted = date.toISOString().slice(0, 10);
 		chartData.labels.push(formatted);
@@ -110,9 +130,9 @@ const buildDataFromResponse = (respConfirmed, respRecovered, respDeaths) => {
 	return optionData;
 };
 
-export const fetchLast10DaysData = () => {
+export const fetchLastXDaysData = (totalDays) => {
 	return (dispatch) => {
-		dispatch(setFetchingLast10DaysData());
+		dispatch(setFetchingLastXDaysData());
 		const req1 = axios.get("/country/colombia/status/confirmed");
 		const req2 = axios.get("/country/colombia/status/recovered");
 		const req3 = axios.get("/country/colombia/status/deaths");
@@ -122,10 +142,10 @@ export const fetchLast10DaysData = () => {
 				const resp1 = responses[0].data;
 				const resp2 = responses[1].data;
 				const resp3 = responses[2].data;
-				dispatch(setLast10DaysData(resp1, resp2, resp3));
+				dispatch(setLastXDaysData(totalDays, resp1, resp2, resp3));
 			})
 			.catch((error) => {
-				dispatch(setErrorFetchingLast10DaysData(error));
+				dispatch(setErrorFetchingLastXDaysData(totalDays, error));
 			});
 	};
 };

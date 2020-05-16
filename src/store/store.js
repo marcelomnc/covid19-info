@@ -1,11 +1,11 @@
 import { createStore, applyMiddleware, combineReducers } from "redux";
 import thunk from "redux-thunk";
 import aBComparisonReducer from "./reducers/ABComparison";
-import last10DaysReducer from "./reducers/Last10Days";
+import lastXDaysReducer from "./reducers/LastXDays";
 
 const finalReducer = combineReducers({
 	aBComparisonReducer: aBComparisonReducer,
-	last10DaysReducer: last10DaysReducer,
+	lastXDaysReducer: lastXDaysReducer,
 });
 
 const store = createStore(

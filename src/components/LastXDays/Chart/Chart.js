@@ -13,8 +13,13 @@ const Chart = (props) => {
 	};
 
 	return (
-		<div className="Last10Days__chart">
-			<Bar data={props.data} legend={legendOpts} {...props} />
+		<div className="LastXDays__chart">
+			<Bar
+				data={props.data}
+				legend={legendOpts}
+				options={{ maintainAspectRatio: false }}
+				{...props}
+			/>
 		</div>
 	);
 };

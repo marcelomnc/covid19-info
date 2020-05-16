@@ -200,12 +200,12 @@ table h3 {
 	color: rgb(231, 70, 49);
 }
 
-.Last10Days {
+.LastXDays {
 	height: 100%;
 	display: flex;
 }
 
-.Last10Days__chart {
+.LastXDays__chart {
 	flex: 1;
 	box-sizing: border-box;
 	background-color: #9eb3dd;
@@ -217,7 +217,7 @@ table h3 {
 	box-shadow: 20px 20px 10px black;
 }
 
-.Last10Days__table {
+.LastXDays__table {
 	flex: 1;
 	box-sizing: border-box;
 	background-color: #9eb3dd;
@@ -227,55 +227,55 @@ table h3 {
 	box-shadow: 20px 20px 10px black;
 }
 
-.Last10Days__table table {
+.LastXDays__table table {
 	width: 100%;
 	height: 100%;
 }
 
-.Last10Days__table th {
+.LastXDays__table th {
 	padding-bottom: 15px;
 }
 
-.Last10Days__table thead > tr:nth-child(2) th {
+.LastXDays__table thead > tr:nth-child(2) th {
 	padding-bottom: 5px;
 }
 
-.Last10Days__table td {
-	padding: 0 15px;
+.LastXDays__table td {
+	padding: 0 1%;
 	text-align: right;
 }
 
-.Last10Days__table td:nth-child(1) {
+.LastXDays__table td:nth-child(1) {
 	text-align: center;
 	font-size: medium;
 	color: white;
 	width: 34%;
 }
 
-.Last10Days__table tbody tr:nth-of-type(odd) {
+.LastXDays__table tbody tr:nth-of-type(odd) {
 	background-color: rgba(34, 41, 83, 0.8);
 }
 
-.Last10Days__table tbody tr:nth-of-type(even) {
+.LastXDays__table tbody tr:nth-of-type(even) {
 	background-color: rgba(34, 41, 83, 0.7);
 }
 
-.Last10Days__table tbody td {
+.LastXDays__table tbody td {
 	font-size: large;
 	font-weight: 700;
 }
 
-.Last10Days__table tbody td:nth-child(2) {
+.LastXDays__table tbody td:nth-child(2) {
 	width: 22%;
 	color: rgb(18, 159, 194);
 }
 
-.Last10Days__table tbody td:nth-child(3) {
+.LastXDays__table tbody td:nth-child(3) {
 	width: 22%;
 	color: rgb(16, 194, 37);
 }
 
-.Last10Days__table tbody td:nth-child(4) {
+.LastXDays__table tbody td:nth-child(4) {
 	width: 22%;
 	color: rgb(231, 70, 49);
 }
@@ -286,8 +286,20 @@ table h3 {
 		flex-direction: column;
 	}
 
-	.Last10Days {
+	.ABComparison__chart {
+		min-height: 300px;
+	}
+
+	.LastXDays {
 		display: flex;
 		flex-direction: column;
+	}
+
+	.LastXDays__chart {
+		min-height: 400px;
+	}
+
+	.LastXDays__table td {
+		padding: 0 2px;
 	}
 }

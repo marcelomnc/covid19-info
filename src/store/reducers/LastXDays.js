@@ -12,17 +12,17 @@ const reducer = (currentState = initialState, action) => {
 	};
 
 	switch (action.type) {
-		case actionTypes.SET_FETCHING_LAST_10_DAYS_DATA:
+		case actionTypes.SET_FETCHING_LAST_X_DAYS_DATA:
 			state.errorFetchingData = null;
 			state.isDataReady = false;
 			state.data = null;
 			break;
-		case actionTypes.SET_ERROR_FETCHING_LAST_10_DAYS_DATA:
+		case actionTypes.SET_ERROR_FETCHING_LAST_X_DAYS_DATA:
 			state.errorFetchingData = action.error;
 			state.isDataReady = false;
 			state.data = null;
 			break;
-		case actionTypes.SET_LAST_10_DAYS_DATA:
+		case actionTypes.SET_LAST_X_DAYS_DATA:
 			state.errorFetchingData = null;
 			state.isDataReady = true;
 			state.data = action.data;

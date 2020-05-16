@@ -6,17 +6,17 @@ import withAjaxRequest from "../../hoc/withAjaxRequest/withAjaxRequest";
 import Chart from "./Chart/Chart";
 import Table from "./Table/Table";
 
-const Last10Days = (props) => {
+const LastXDays = (props) => {
 	useEffect(() => {
-		props.fetchData();
-	}, []);
+		props.fetchData(props.totalDays);
+	}, [props.totalDays]);
 
 	let content = null;
 	if (props.isDataReady) {
-		const label = "Totales - Colombia últimos 10 días";
+		const label = `Totales - Colombia últimos ${props.totalDays} días`;
 
 		content = (
-			<div className="Last10Days">
+			<div className="LastXDays">
 				<Chart data={props.data.chart} height={200} />
 				<Table data={props.data.table} label={label} />
 			</div>
@@ -28,15 +28,15 @@ const Last10Days = (props) => {
 
 const mapStateToProps = (state) => {
 	return {
-		isDataReady: state.last10DaysReducer.isDataReady,
-		data: state.last10DaysReducer.data,
+		isDataReady: state.lastXDaysReducer.isDataReady,
+		data: state.lastXDaysReducer.data,
 	};
 };
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		fetchData: () => {
-			dispatch(actionCreators.fetchLast10DaysData());
+		fetchData: (totalDays) => {
+			dispatch(actionCreators.fetchLastXDaysData(totalDays));
 		},
 	};
 };
@@ -44,4 +44,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(withAjaxRequest(Last10Days, axios));
+)(withAjaxRequest(LastXDays, axios));
