@@ -281,6 +281,13 @@ table h3 {
 }
 
 @media (max-width: 700px) {
+	.ModalShow {
+		top: 30%;
+		left: 10%;
+		width: 80%;
+		padding: 1rem;
+	}
+
 	.ABComparison {
 		display: flex;
 		flex-direction: column;
