@@ -1,5 +1,4 @@
 import React from "react";
-import TitleBar from "./TitleBar/TitleBar";
 import NavigationBar from "./NavigationBar/NavigationBar";
 
 const Header = (props) => {
