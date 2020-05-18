@@ -4,7 +4,7 @@ import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 const NavigationBarBS = (props) => {
 	return (
 		<Navbar bg="dark" variant="dark" expand="sm">
-			<Navbar.Brand href="#home">Covid19-Stats</Navbar.Brand>
+			<Navbar.Brand href="#home">Covid19 - Stats</Navbar.Brand>
 			<Navbar.Toggle aria-controls="basic-navbar-nav" />
 			<Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
 				<Nav>
