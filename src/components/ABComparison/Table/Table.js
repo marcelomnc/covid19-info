@@ -2,7 +2,7 @@ import React from "react";
 
 const Table = (props) => {
 	return (
-		<div className="ABComparison__table">
+		<div className="AppTable ABComparison__table">
 			<table>
 				<thead>
 					<tr>

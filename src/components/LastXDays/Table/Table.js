@@ -2,7 +2,7 @@ import React from "react";
 
 const Table = (props) => {
 	return (
-		<div className="LastXDays__table">
+		<div className="AppTable LastXDays__table">
 			<table>
 				<thead>
 					<tr>
