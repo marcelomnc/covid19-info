@@ -97,13 +97,6 @@
 	font-weight: normal;
 }
 
-.TitleBar {
-	height: 60%;
-	color: white;
-	display: flex;
-	justify-content: center;
-}
-
 .NavigationBar {
 	box-sizing: border-box;
 	height: 40%;
