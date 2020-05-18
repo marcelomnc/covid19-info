@@ -4,14 +4,18 @@
 	font-family: "Roboto", sans-serif;
 }
 
-table h2 {
+.AppTable table {
+	border-collapse: unset;
+}
+
+.AppTable table h2 {
 	color: rgb(34, 41, 83);
 	font-size: large;
 	font-weight: 900;
 	overflow-wrap: anywhere;
 }
 
-table h3 {
+.AppTable table h3 {
 	color: rgb(34, 41, 83);
 	font-weight: 500;
 	font-size: medium;
@@ -71,12 +75,12 @@ table h3 {
 }
 
 .Header {
-	height: 5rem;
+	height: 4rem;
 }
 
 .Main {
 	flex: 1;
-	padding: 1rem;
+	padding: 0 1rem 1rem 1rem;
 }
 
 .Footer {
@@ -86,6 +90,11 @@ table h3 {
 	display: flex;
 	align-items: center;
 	padding: 1rem;
+}
+
+.Footer h5 {
+	font-size: 0.83em;
+	font-weight: normal;
 }
 
 .TitleBar {
@@ -162,6 +171,7 @@ table h3 {
 }
 
 .ABComparison__table th {
+	text-align: center;
 	padding-bottom: 15px;
 }
 
@@ -234,6 +244,7 @@ table h3 {
 }
 
 .LastXDays__table th {
+	text-align: center;
 	padding-bottom: 15px;
 }
 
