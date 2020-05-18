@@ -1,4 +1,5 @@
 import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/styles/App.css";
 import "./assets/styles/LoadingSpinner.css";
 import { Route, Switch, Redirect, withRouter } from "react-router-dom";
