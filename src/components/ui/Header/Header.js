@@ -1,10 +1,10 @@
 import React from "react";
-import NavigationBar from "./NavigationBar/NavigationBar";
+import NavigationBarBS from "./NavigationBarBS/NavigationBarBS";
 
 const Header = (props) => {
 	return (
 		<header className="Header">
-			<NavigationBar />
+			<NavigationBarBS />
 		</header>
 	);
 };
