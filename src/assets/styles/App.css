@@ -278,6 +278,10 @@
 	color: rgb(231, 70, 49);
 }
 
+.About {
+	color: white;
+}
+
 @media (max-width: 700px) {
 	.ModalShow {
 		top: 30%;
