@@ -97,39 +97,6 @@
 	font-weight: normal;
 }
 
-.NavigationBar {
-	box-sizing: border-box;
-	height: 40%;
-	padding: 0 2rem;
-}
-
-.NavigationBar ul {
-	display: block;
-}
-
-.NavigationBar li {
-	display: inline;
-	margin: 0 1rem;
-}
-
-.NavigationBar a {
-	color: white;
-	text-decoration: none;
-}
-
-.NavigationBar a:hover {
-	color: #61dafb;
-}
-
-.NavigationItemActive {
-	color: aqua !important;
-}
-
-.NavigationBar hr {
-	border-top: 1px solid #ffffff;
-	margin-top: 10px;
-}
-
 .ABComparison {
 	height: 100%;
 	display: grid;
