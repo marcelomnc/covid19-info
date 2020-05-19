@@ -6,6 +6,7 @@ import { Route, Switch, Redirect, withRouter } from "react-router-dom";
 import ABComparison from "./components/ABComparison/ABComparison";
 import * as ABComparisonTypes from "./components/ABComparison/Types";
 import LastXDays from "./components/LastXDays/LastXDays";
+import About from "./components/About/About";
 import Layout from "./hoc/Layout/Layout";
 
 function App() {
@@ -67,6 +68,13 @@ function App() {
 				exact
 				render={() => {
 					return <LastXDays totalDays={7} />;
+				}}
+			/>
+			<Route
+				path="/about"
+				exact
+				render={() => {
+					return <About />;
 				}}
 			/>
 			<Redirect to="/summary/global" />

@@ -39,7 +39,7 @@ const NavBar = (props) => {
 							Colombia
 						</NavDropdown.Item>
 					</NavDropdown>
-					<Nav.Link eventKey="4" href="/summary/global">
+					<Nav.Link eventKey="4" href="/about">
 						Acerca de
 					</Nav.Link>
 				</Nav>
