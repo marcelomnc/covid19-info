@@ -105,16 +105,16 @@
 	}
   }
 
+.Nav.navbar-nav > .nav-item > .dropdown-menu {
+	background-color: #27436b;
+}
+
 .Nav.navbar-nav > .nav-link,  .Nav > .nav-item > .nav-link, .Nav.navbar-nav > .nav-item > .dropdown-menu > .dropdown-item {
     color: rgba(255,255,255);
 }
 
 .Nav.navbar-nav > .nav-item > .dropdown-menu > .dropdown-item:hover {
     background-color: #9eb3dd;
-}
-
-.Nav.navbar-nav > .nav-item > .dropdown-menu {
-	background-color: #27436b;
 }
 
 .Footer {
