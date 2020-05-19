@@ -83,6 +83,32 @@
 	padding: 0 1rem 1rem 1rem;
 }
 
+.NavBar {
+	background-color: #27436b;
+}
+
+.NavBar__brand {
+	font-size: 1.3rem;
+	font-weight: bold;
+}
+
+.NavBar__brand__logo {
+	animation: NavBar-brand-logo-spin infinite 7s linear;
+}
+
+@keyframes NavBar-brand-logo-spin {
+	from {
+	  transform: rotate(0deg);
+	}
+	to {
+	  transform: rotate(360deg);
+	}
+  }
+
+.Nav.navbar-nav > .nav-link,  .Nav > .nav-item > .nav-link {
+    color: rgba(255,255,255);
+}
+
 .Footer {
 	box-sizing: border-box;
 	height: 1.5rem;
