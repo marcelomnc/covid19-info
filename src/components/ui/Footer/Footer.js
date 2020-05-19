@@ -3,7 +3,7 @@ import React from "react";
 const Footer = (props) => {
 	return (
 		<footer className="Footer">
-			<h5>Developed by &copy;Wounded Dragons All rights reserved</h5>
+			<h5>Desarrollado por &copy;Wounded Dragons. Todos los derechos reservados</h5>
 		</footer>
 	);
 };
