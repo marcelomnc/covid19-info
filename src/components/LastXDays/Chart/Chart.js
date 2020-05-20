@@ -3,13 +3,15 @@ import { Bar } from "react-chartjs-2";
 import * as formatter from "../../../shared/Formatter/Formatter";
 
 const Chart = (props) => {
+	const fontColor = "rgb(34, 41, 83)";
+
 	const legendOpts = {
 		display: true,
 		position: "bottom",
 		fullWidth: false,
 		reverse: false,
 		labels: {
-			fontColor: "rgb(34, 41, 83)",
+			fontColor: fontColor,
 		},
 	};
 
@@ -22,6 +24,14 @@ const Chart = (props) => {
 						callback: function (value, index, values) {
 							return formatter.formatNumber(value);
 						},
+						fontColor: fontColor,
+					},
+				},
+			],
+			xAxes: [
+				{
+					ticks: {
+						fontColor: fontColor,
 					},
 				},
 			],
