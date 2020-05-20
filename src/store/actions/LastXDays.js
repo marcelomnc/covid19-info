@@ -1,5 +1,6 @@
 import * as actionTypes from "./actionTypes";
 import axios from "../../shared/Axios/Axios";
+import * as formatter from "../../shared/Formatter/Formatter";
 
 const setFetchingLastXDaysData = () => {
 	return {
@@ -9,12 +10,14 @@ const setFetchingLastXDaysData = () => {
 
 const setLastXDaysData = (
 	totalDays,
+	isCummulative,
 	respConfirmed,
 	respRecovered,
 	respDeaths
 ) => {
 	const data = buildDataFromResponse(
 		totalDays,
+		isCummulative,
 		respConfirmed,
 		respRecovered,
 		respDeaths
@@ -35,6 +38,7 @@ const setErrorFetchingLastXDaysData = (totalDays, error) => {
 
 const buildDataFromResponse = (
 	totalDays,
+	isCummulative,
 	respConfirmed,
 	respRecovered,
 	respDeaths
@@ -111,15 +115,27 @@ const buildDataFromResponse = (
 		i <= respConfirmed.length - 1;
 		i++
 	) {
-		const date = new Date(respConfirmed[i].Date);
-		const formatted = date.toISOString().slice(0, 10);
-		chartData.labels.push(formatted);
-		chartData.datasets[0].data.push(respConfirmed[i].Cases);
-		chartData.datasets[1].data.push(respRecovered[i].Cases);
-		chartData.datasets[2].data.push(respDeaths[i].Cases);
-		tableData.confirmed.data.push(respConfirmed[i].Cases);
-		tableData.recovered.data.push(respRecovered[i].Cases);
-		tableData.deaths.data.push(respDeaths[i].Cases);
+		chartData.labels.push(formatter.formatDate(respConfirmed[i].Date));
+
+		if (isCummulative) {
+			chartData.datasets[0].data.push(respConfirmed[i].Cases);
+			chartData.datasets[1].data.push(respRecovered[i].Cases);
+			chartData.datasets[2].data.push(respDeaths[i].Cases);
+			tableData.confirmed.data.push(respConfirmed[i].Cases);
+			tableData.recovered.data.push(respRecovered[i].Cases);
+			tableData.deaths.data.push(respDeaths[i].Cases);
+		} else {
+			//New cases must be calculated since the API does not provide these stats
+			const newConfirmed = respConfirmed[i].Cases - respConfirmed[i - 1].Cases;
+			const newRecovered = respRecovered[i].Cases - respRecovered[i - 1].Cases;
+			const newDeaths = respDeaths[i].Cases - respDeaths[i - 1].Cases;
+			chartData.datasets[0].data.push(newConfirmed);
+			chartData.datasets[1].data.push(newRecovered);
+			chartData.datasets[2].data.push(newDeaths);
+			tableData.confirmed.data.push(newConfirmed);
+			tableData.recovered.data.push(newRecovered);
+			tableData.deaths.data.push(newDeaths);
+		}
 	}
 
 	const optionData = {
@@ -130,7 +146,7 @@ const buildDataFromResponse = (
 	return optionData;
 };
 
-export const fetchLastXDaysData = (totalDays) => {
+export const fetchLastXDaysData = (totalDays, isCummulative) => {
 	return (dispatch) => {
 		dispatch(setFetchingLastXDaysData());
 		const req1 = axios.get("/country/colombia/status/confirmed");
@@ -142,7 +158,9 @@ export const fetchLastXDaysData = (totalDays) => {
 				const resp1 = responses[0].data;
 				const resp2 = responses[1].data;
 				const resp3 = responses[2].data;
-				dispatch(setLastXDaysData(totalDays, resp1, resp2, resp3));
+				dispatch(
+					setLastXDaysData(totalDays, isCummulative, resp1, resp2, resp3)
+				);
 			})
 			.catch((error) => {
 				dispatch(setErrorFetchingLastXDaysData(totalDays, error));
