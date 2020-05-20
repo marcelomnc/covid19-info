@@ -1,4 +1,5 @@
 import React from "react";
+import * as formatter from "../../../shared/Formatter/Formatter";
 
 const Table = (props) => {
 	return (
@@ -14,15 +15,15 @@ const Table = (props) => {
 				<tbody>
 					<tr>
 						<td>{props.data.confirmed.label}</td>
-						<td>{props.data.confirmed.value.toLocaleString()}</td>
+						<td>{formatter.formatNumber(props.data.confirmed.value)}</td>
 					</tr>
 					<tr>
 						<td>{props.data.recovered.label}</td>
-						<td>{props.data.recovered.value.toLocaleString()}</td>
+						<td>{formatter.formatNumber(props.data.recovered.value)}</td>
 					</tr>
 					<tr>
 						<td>{props.data.deaths.label}</td>
-						<td>{props.data.deaths.value.toLocaleString()}</td>
+						<td>{formatter.formatNumber(props.data.deaths.value)}</td>
 					</tr>
 				</tbody>
 			</table>

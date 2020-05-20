@@ -1,5 +1,6 @@
 import React from "react";
 import { Pie } from "react-chartjs-2";
+import * as formatter from "../../../shared/Formatter/Formatter";
 
 const Chart = (props) => {
 	const legendOpts = {
@@ -45,13 +46,23 @@ const Chart = (props) => {
 		],
 	};
 
+	const options = {
+		maintainAspectRatio: false,
+		tooltips: {
+			callbacks: {
+				label: function (tooltipItem, data) {
+					const label = data.labels[tooltipItem.index];
+					const toFormat =
+						data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+					return `${label}: ${formatter.formatNumber(toFormat)}`;
+				},
+			},
+		},
+	};
+
 	return (
 		<div className="ABComparison__chart">
-			<Pie
-				data={data}
-				legend={legendOpts}
-				options={{ maintainAspectRatio: false }}
-			/>
+			<Pie data={data} legend={legendOpts} options={options} />
 		</div>
 	);
 };

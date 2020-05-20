@@ -1,4 +1,5 @@
 import React from "react";
+import * as formatter from "../../../shared/Formatter/Formatter";
 
 const Table = (props) => {
 	return (
@@ -30,9 +31,13 @@ const Table = (props) => {
 						return (
 							<tr key={index}>
 								<td>{current}</td>
-								<td>{props.data.confirmed.data[index].toLocaleString()}</td>
-								<td>{props.data.recovered.data[index].toLocaleString()}</td>
-								<td>{props.data.deaths.data[index].toLocaleString()}</td>
+								<td>
+									{formatter.formatNumber(props.data.confirmed.data[index])}
+								</td>
+								<td>
+									{formatter.formatNumber(props.data.recovered.data[index])}
+								</td>
+								<td>{formatter.formatNumber(props.data.deaths.data[index])}</td>
 							</tr>
 						);
 					})}
