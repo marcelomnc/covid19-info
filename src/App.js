@@ -39,7 +39,7 @@ function App() {
 				}}
 			/>
 			<Route
-				path="/summary/gvc/cummulative"
+				path="/gvc/cummulative"
 				exact
 				render={() => {
 					return (
@@ -52,7 +52,7 @@ function App() {
 				}}
 			/>
 			<Route
-				path="/summary/gvc/today"
+				path="/gvc/newCases"
 				render={() => {
 					return (
 						<ABComparison
@@ -64,7 +64,14 @@ function App() {
 				}}
 			/>
 			<Route
-				path="/lastDays/myCountry"
+				path="/lastDays/cummulative"
+				exact
+				render={() => {
+					return <LastXDays totalDays={7} isCummulative />;
+				}}
+			/>
+			<Route
+				path="/lastDays/newCases"
 				exact
 				render={() => {
 					return <LastXDays totalDays={7} />;
