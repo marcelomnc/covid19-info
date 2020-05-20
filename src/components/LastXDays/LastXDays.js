@@ -8,12 +8,13 @@ import Table from "./Table/Table";
 
 const LastXDays = (props) => {
 	useEffect(() => {
-		props.fetchData(props.totalDays);
-	}, [props.totalDays]);
+		props.fetchData(props.totalDays, props.isCummulative);
+	}, [props.totalDays, props.isCummulative]);
 
 	let content = null;
 	if (props.isDataReady) {
-		const label = `Totales - Colombia últimos ${props.totalDays} días`;
+		const title = props.isCummulative ? "Acumulado" : "Nuevos Casos";
+		const label = `${title} - Colombia últimos ${props.totalDays} días`;
 
 		content = (
 			<div className="LastXDays">
@@ -35,8 +36,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		fetchData: (totalDays) => {
-			dispatch(actionCreators.fetchLastXDaysData(totalDays));
+		fetchData: (totalDays, isCummulative) => {
+			dispatch(actionCreators.fetchLastXDaysData(totalDays, isCummulative));
 		},
 	};
 };
