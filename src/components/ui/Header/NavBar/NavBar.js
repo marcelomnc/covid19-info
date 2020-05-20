@@ -27,16 +27,19 @@ const NavBar = (props) => {
 						</NavDropdown.Item>
 					</NavDropdown>
 					<NavDropdown title="Global vs Colombia">
-						<NavDropdown.Item eventKey="2.1" href="/summary/gvc/cummulative">
+						<NavDropdown.Item eventKey="2.1" href="/gvc/cummulative">
 							Acumulado
 						</NavDropdown.Item>
-						<NavDropdown.Item eventKey="2.2" href="/summary/gvc/today">
-							Hoy
+						<NavDropdown.Item eventKey="2.2" href="/gvc/newCases">
+							Nuevos Casos
 						</NavDropdown.Item>
 					</NavDropdown>
-					<NavDropdown title="Últimos días">
-						<NavDropdown.Item eventKey="3" href="/lastDays/myCountry">
-							Colombia
+					<NavDropdown title="Últimos días Colombia">
+						<NavDropdown.Item eventKey="3.1" href="/lastDays/cummulative">
+							Acumulado
+						</NavDropdown.Item>
+						<NavDropdown.Item eventKey="3.2" href="/lastDays/newCases">
+							Nuevos Casos
 						</NavDropdown.Item>
 					</NavDropdown>
 					<Nav.Link eventKey="4" href="/about">
