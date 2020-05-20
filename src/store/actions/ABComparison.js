@@ -64,8 +64,8 @@ const buildDataFromResponse = (aBComparisonType, response) => {
 
 	switch (aBComparisonType) {
 		case aBComparisonTypes.GLOBAL_CUMMULATIVE_VS_TODAY_COMPARISON:
-			entityALabel = "Totales - Global Acumulado";
-			entityBLabel = "Totales - Global Hoy";
+			entityALabel = "Acumulado - Global";
+			entityBLabel = "Nuevos Casos - Global";
 			entityAData = {
 				confirmed: globalResponse.TotalConfirmed,
 				recovered: globalResponse.TotalRecovered,
@@ -78,8 +78,8 @@ const buildDataFromResponse = (aBComparisonType, response) => {
 			};
 			break;
 		case aBComparisonTypes.COUNTRY_CUMMULATIVE_VS_TODAY_COMPARISON:
-			entityALabel = "Totales - Colombia Acumulado";
-			entityBLabel = "Totales - Colombia Hoy";
+			entityALabel = "Acumulado - Colombia";
+			entityBLabel = "Nuevos Casos - Colombia";
 			entityAData = {
 				confirmed: countryResponse.TotalConfirmed,
 				recovered: countryResponse.TotalRecovered,
@@ -92,8 +92,8 @@ const buildDataFromResponse = (aBComparisonType, response) => {
 			};
 			break;
 		case aBComparisonTypes.GLOBAL_VS_COUNTRY_CUMMULATIVE_COMPARISON:
-			entityALabel = "Totales - Global Acumulado";
-			entityBLabel = "Totales - Colombia Acumulado";
+			entityALabel = "Acumulado - Global";
+			entityBLabel = "Acumulado - Colombia";
 			entityAData = {
 				confirmed: globalResponse.TotalConfirmed,
 				recovered: globalResponse.TotalRecovered,
@@ -106,8 +106,8 @@ const buildDataFromResponse = (aBComparisonType, response) => {
 			};
 			break;
 		default:
-			entityALabel = "Totales - Global Hoy";
-			entityBLabel = "Totales - Colombia Hoy";
+			entityALabel = "Nuevos Casos - Global";
+			entityBLabel = "Nuevos Casos - Colombia";
 			entityAData = {
 				confirmed: globalResponse.NewConfirmed,
 				recovered: globalResponse.NewRecovered,
