@@ -90,6 +90,7 @@
 .NavBar__brand {
 	font-size: 1.3rem;
 	font-weight: bold;
+	text-shadow: 4px 4px 3px black;
 }
 
 .NavBar__brand__logo {
