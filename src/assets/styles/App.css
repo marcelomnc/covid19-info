@@ -94,28 +94,21 @@
 }
 
 .NavBar__brand__logo {
-	animation: NavBar-brand-logo-spin infinite 7s linear;
+	animation: logo-spin infinite 7s linear;
 }
-
-@keyframes NavBar-brand-logo-spin {
-	from {
-	  transform: rotate(0deg);
-	}
-	to {
-	  transform: rotate(360deg);
-	}
-  }
 
 .Nav.navbar-nav > .nav-item > .dropdown-menu {
 	background-color: #27436b;
 }
 
-.Nav.navbar-nav > .nav-link,  .Nav > .nav-item > .nav-link, .Nav.navbar-nav > .nav-item > .dropdown-menu > .dropdown-item {
-    color: rgba(255,255,255);
+.Nav.navbar-nav > .nav-link,
+.Nav > .nav-item > .nav-link,
+.Nav.navbar-nav > .nav-item > .dropdown-menu > .dropdown-item {
+	color: rgba(255, 255, 255);
 }
 
 .Nav.navbar-nav > .nav-item > .dropdown-menu > .dropdown-item:hover {
-    background-color: #9eb3dd;
+	background-color: #9eb3dd;
 }
 
 .Footer {
@@ -288,7 +281,70 @@
 }
 
 .About {
+	height: 100%;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(2, 1fr);
 	color: white;
+	box-sizing: border-box;
+	margin: 0 6rem;
+}
+
+.About__text_container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: justify;
+}
+
+.About__tech_logos_container {
+	box-sizing: border-box;
+	padding: 0 0 1rem 0;
+	margin: 2rem;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	background-color: #27436b;
+	justify-items: center;
+}
+
+.About__tech_logos_container > img {
+	height: 50%;
+}
+
+.About__tech_logos_container > img:nth-child(1) {
+	grid-column-start: 1;
+	grid-column-end: 3;
+	animation: logo-spin infinite 10s linear;
+}
+
+.About__tech_logos_container > img:nth-child(2) {
+	max-width: 100%;
+	grid-column-start: 1;
+	grid-column-end: 3;
+}
+.About__app_logo_container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+	padding: 1rem 0;
+	margin: 2rem;
+	background-color: #27436b;
+}
+
+.About__app_logo_container > img {
+	height: 100%;
+	animation: logo-spin infinite 15s linear;
+}
+
+@keyframes logo-spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }
 
 @media (max-width: 700px) {
@@ -319,5 +375,21 @@
 
 	.LastXDays__table td {
 		padding: 0 2px;
+	}
+
+	.About {
+		display: flex;
+		flex-direction: column;
+		margin: 2rem 1rem 0 1rem;
+	}
+
+	.About__tech_logos_container {
+		height: 300px;
+		padding: 1rem 0;
+	}
+
+	.About__app_logo_container {
+		height: 300px;
+		order: 4;
 	}
 }
