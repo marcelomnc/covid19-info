@@ -95,9 +95,7 @@ const About = (props) => {
 					retroalimentación es bien recibida !
 				</p>
 
-				<p>
-					Cuidate y #QuedateEnCasa !
-				</p>
+				<p>Cuídate y #QuedateEnCasa !</p>
 			</div>
 		</div>
 	);
