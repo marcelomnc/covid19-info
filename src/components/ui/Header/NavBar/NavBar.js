@@ -4,7 +4,7 @@ import logo from "../../../../assets/images/AppLogo.svg";
 
 const NavBar = (props) => {
 	return (
-		<Navbar className="NavBar" variant="dark" expand="sm">
+		<Navbar className="NavBar" variant="dark" expand="lg">
 			<Navbar.Brand className="NavBar__brand">
 				<img
 					alt=""
