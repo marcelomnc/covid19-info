@@ -55,7 +55,7 @@ const About = (props) => {
 
 			<div className="About__text_container">
 				<p>
-					Esta aplicación fué desarrollada aplicando&nbsp;
+					Esta aplicación fue desarrollada aplicando&nbsp;
 					<a
 						href="https://es.wikipedia.org/wiki/Dise%C3%B1o_web_adaptable"
 						target="blank"
@@ -90,9 +90,10 @@ const About = (props) => {
 				</p>
 
 				<p>
-					Para comentarios y/o sugerencias puedes contactarme enviando un
-					email&nbsp;<a href="mailto:marcelomnc@gmail.com">aquí</a>. Toda
-					retroalimentación es bien recibida !
+					Mi nombre es <strong>Marcelo Echeverri</strong>, para comentarios y/o
+					sugerencias puedes contactarme enviando un email&nbsp;
+					<a href="mailto:marcelomnc@gmail.com">aquí</a>. Toda retroalimentación
+					es bien recibida !
 				</p>
 
 				<p>Cuídate y #QuedateEnCasa !</p>
