@@ -1,6 +1,7 @@
 import * as actionTypes from "./actionTypes";
 import axios from "../../shared/Axios/Axios";
 import * as formatter from "../../shared/Formatter/Formatter";
+import * as Labels from "../../shared/ui/Labels";
 
 const setFetchingLastXDaysData = () => {
 	return {
@@ -10,14 +11,14 @@ const setFetchingLastXDaysData = () => {
 
 const setLastXDaysData = (
 	totalDays,
-	isCummulative,
+	isCumulative,
 	respConfirmed,
 	respRecovered,
 	respDeaths
 ) => {
 	const data = buildDataFromResponse(
 		totalDays,
-		isCummulative,
+		isCumulative,
 		respConfirmed,
 		respRecovered,
 		respDeaths
@@ -38,66 +39,42 @@ const setErrorFetchingLastXDaysData = (totalDays, error) => {
 
 const buildDataFromResponse = (
 	totalDays,
-	isCummulative,
+	isCumulative,
 	respConfirmed,
 	respRecovered,
 	respDeaths
 ) => {
-	const confirmedLabel = "Confirmados";
-	const recoveredLabel = "Recuperados";
-	const deathsLabel = "Muertos";
-
-	const borderColor = "rgba(255, 255, 255, 0.5)";
-	const borderWidth = 1;
-	const backgroundColors = [
-		"rgb(18,159,194)",
-		"rgb(16,194,37)",
-		"rgb(231,70,49)",
-	];
-	const hoverBackgroundColors = [
-		"rgba(18,159,194,0.4)",
-		"rgba(16,194,37, 0.4)",
-		"rgba(231,70,49, 0.4)",
+	const [activeLabel, confirmedLabel, recoveredLabel, deathsLabel] = [
+		Labels.activeLabel,
+		Labels.confirmedLabel,
+		Labels.recoveredLabel,
+		Labels.deathsLabel,
 	];
 
 	const chartData = {
 		labels: [],
 		datasets: [
 			{
-				label: confirmedLabel,
-				borderColor: borderColor,
-				borderWidth: borderWidth,
-				backgroundColor: backgroundColors[0],
-				hoverBackgroundColor: hoverBackgroundColors[0],
-				hoverBorderColor: hoverBackgroundColors[0],
 				data: [],
 			},
 			{
-				label: recoveredLabel,
-				borderColor: borderColor,
-				borderWidth: borderWidth,
-				backgroundColor: backgroundColors[1],
-				hoverBackgroundColor: hoverBackgroundColors[1],
-				hoverBorderColor: hoverBackgroundColors[1],
 				data: [],
 			},
 			{
-				label: deathsLabel,
-				borderColor: borderColor,
-				borderWidth: borderWidth,
-				backgroundColor: backgroundColors[2],
-				hoverBackgroundColor: hoverBackgroundColors[2],
-				hoverBorderColor: hoverBackgroundColors[2],
 				data: [],
 			},
 		],
 	};
 
 	const tableData = {
-		label: "Fecha",
 		labels: chartData.labels,
+		dateLabel: Labels.dateLabel,
 		confirmed: {
 			label: confirmedLabel,
+			data: [],
+		},
+		active: {
+			label: activeLabel,
 			data: [],
 		},
 		recovered: {
@@ -117,11 +94,14 @@ const buildDataFromResponse = (
 	) {
 		chartData.labels.push(formatter.formatDate(respConfirmed[i].Date));
 
-		if (isCummulative) {
-			chartData.datasets[0].data.push(respConfirmed[i].Cases);
+		if (isCumulative) {
+			const totalActive =
+				respConfirmed[i].Cases - respRecovered[i].Cases - respDeaths[i].Cases;
+			chartData.datasets[0].data.push(totalActive);
 			chartData.datasets[1].data.push(respRecovered[i].Cases);
 			chartData.datasets[2].data.push(respDeaths[i].Cases);
 			tableData.confirmed.data.push(respConfirmed[i].Cases);
+			tableData.active.data.push(totalActive);
 			tableData.recovered.data.push(respRecovered[i].Cases);
 			tableData.deaths.data.push(respDeaths[i].Cases);
 		} else {
@@ -146,7 +126,7 @@ const buildDataFromResponse = (
 	return optionData;
 };
 
-export const fetchLastXDaysData = (totalDays, isCummulative) => {
+export const fetchLastXDaysData = (totalDays, isCumulative) => {
 	return (dispatch) => {
 		dispatch(setFetchingLastXDaysData());
 		const req1 = axios.get("/country/colombia/status/confirmed");
@@ -159,7 +139,7 @@ export const fetchLastXDaysData = (totalDays, isCummulative) => {
 				const resp2 = responses[1].data;
 				const resp3 = responses[2].data;
 				dispatch(
-					setLastXDaysData(totalDays, isCummulative, resp1, resp2, resp3)
+					setLastXDaysData(totalDays, isCumulative, resp1, resp2, resp3)
 				);
 			})
 			.catch((error) => {

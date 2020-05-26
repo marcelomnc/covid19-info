@@ -1,6 +1,8 @@
 import * as actionTypes from "../actions/actionTypes";
 import * as aBComparisonTypes from "../../components/ABComparison/Types";
 import axios from "../../shared/Axios/Axios";
+import * as Labels from "../../shared/ui/Labels";
+import * as Formatter from "../../shared/Formatter/Formatter";
 
 const setFetchingABComparisonData = () => {
 	return {
@@ -13,17 +15,16 @@ const setABComparisonData = (aBComparisonType, response) => {
 
 	let typeToReturn = null;
 	switch (aBComparisonType) {
-		case aBComparisonTypes.GLOBAL_CUMMULATIVE_VS_TODAY_COMPARISON:
-			typeToReturn =
-				actionTypes.SET_GLOBAL_CUMMULATIVE_VS_TODAY_COMPARISON_DATA;
+		case aBComparisonTypes.GLOBAL_CUMULATIVE_VS_TODAY_COMPARISON:
+			typeToReturn = actionTypes.SET_GLOBAL_CUMULATIVE_VS_TODAY_COMPARISON_DATA;
 			break;
-		case aBComparisonTypes.COUNTRY_CUMMULATIVE_VS_TODAY_COMPARISON:
+		case aBComparisonTypes.COUNTRY_CUMULATIVE_VS_TODAY_COMPARISON:
 			typeToReturn =
-				actionTypes.SET_COUNTRY_CUMMULATIVE_VS_TODAY_COMPARISON_DATA;
+				actionTypes.SET_COUNTRY_CUMULATIVE_VS_TODAY_COMPARISON_DATA;
 			break;
-		case aBComparisonTypes.GLOBAL_VS_COUNTRY_CUMMULATIVE_COMPARISON:
+		case aBComparisonTypes.GLOBAL_VS_COUNTRY_CUMULATIVE_COMPARISON:
 			typeToReturn =
-				actionTypes.SET_GLOBAL_VS_COUNTRY_CUMMULATIVE_COMPARISON_DATA;
+				actionTypes.SET_GLOBAL_VS_COUNTRY_CUMULATIVE_COMPARISON_DATA;
 			break;
 		default:
 			typeToReturn = actionTypes.SET_GLOBAL_VS_COUNTRY_TODAY_COMPARISON_DATA;
@@ -45,117 +46,246 @@ const setErrorFetchingABComparisonData = (error) => {
 };
 
 const buildDataFromResponse = (aBComparisonType, response) => {
-	const confirmedLabel = "Confirmados";
-	const recoveredLabel = "Recuperados";
-	const deathsLabel = "Muertos";
-
-	let [entityALabel, entityBLabel, entityAData, entityBData] = [
-		null,
-		null,
-		null,
-		null,
+	const [activeLabel, confirmedLabel, recoveredLabel, deathsLabel] = [
+		Labels.activeLabel,
+		Labels.confirmedLabel,
+		Labels.recoveredLabel,
+		Labels.deathsLabel,
 	];
+
+	let entityALabel,
+		entityBLabel,
+		entityAData,
+		entityBData = null;
+
 	let globalResponse = response.Global;
 	let countryResponse = response.Countries;
 	countryResponse = countryResponse.filter(
 		(current) => current.CountryCode === "CO"
 	);
 	countryResponse = countryResponse[0];
+	let totalActiveEntityA,
+		totalActiveEntityB = 0;
 
 	switch (aBComparisonType) {
-		case aBComparisonTypes.GLOBAL_CUMMULATIVE_VS_TODAY_COMPARISON:
-			entityALabel = "Acumulado - Global";
-			entityBLabel = "Nuevos Casos - Global";
+		case aBComparisonTypes.GLOBAL_CUMULATIVE_VS_TODAY_COMPARISON:
+			entityALabel = Labels.globalCumulativeVsTodayEntityATitle;
+			entityBLabel = Labels.globalCumulativeVsTodayEntityBTitle;
+			totalActiveEntityA =
+				globalResponse.TotalConfirmed -
+				globalResponse.TotalRecovered -
+				globalResponse.TotalDeaths;
 			entityAData = {
-				confirmed: globalResponse.TotalConfirmed,
-				recovered: globalResponse.TotalRecovered,
-				deaths: globalResponse.TotalDeaths,
+				label: entityALabel,
+				chart: {
+					labels: [activeLabel, recoveredLabel, deathsLabel],
+					datasets: [
+						{
+							data: [
+								totalActiveEntityA,
+								globalResponse.TotalRecovered,
+								globalResponse.TotalDeaths,
+							],
+						},
+					],
+				},
+				table: {
+					labels: [activeLabel, recoveredLabel, deathsLabel, confirmedLabel],
+					confirmed: globalResponse.TotalConfirmed,
+					active: totalActiveEntityA,
+					recovered: globalResponse.TotalRecovered,
+					deaths: globalResponse.TotalDeaths,
+				},
 			};
 			entityBData = {
-				confirmed: globalResponse.NewConfirmed,
-				recovered: globalResponse.NewRecovered,
-				deaths: globalResponse.NewDeaths,
+				label: entityBLabel,
+				chart: {
+					labels: [Formatter.formatDate(new Date())],
+					datasets: [
+						{
+							data: [globalResponse.NewConfirmed],
+						},
+						{
+							data: [globalResponse.NewRecovered],
+						},
+						{
+							data: [globalResponse.NewDeaths],
+						},
+					],
+				},
+				table: {
+					labels: [confirmedLabel, recoveredLabel, deathsLabel],
+					confirmed: globalResponse.NewConfirmed,
+					recovered: globalResponse.NewRecovered,
+					deaths: globalResponse.NewDeaths,
+				},
 			};
 			break;
-		case aBComparisonTypes.COUNTRY_CUMMULATIVE_VS_TODAY_COMPARISON:
-			entityALabel = "Acumulado - Colombia";
-			entityBLabel = "Nuevos Casos - Colombia";
+		case aBComparisonTypes.COUNTRY_CUMULATIVE_VS_TODAY_COMPARISON:
+			entityALabel = Labels.countryCumulativeVsTodayEntityATitle;
+			entityBLabel = Labels.countryCumulativeVsTodayEntityBTitle;
+			totalActiveEntityA =
+				countryResponse.TotalConfirmed -
+				countryResponse.TotalRecovered -
+				countryResponse.TotalDeaths;
 			entityAData = {
-				confirmed: countryResponse.TotalConfirmed,
-				recovered: countryResponse.TotalRecovered,
-				deaths: countryResponse.TotalDeaths,
+				label: entityALabel,
+				chart: {
+					labels: [activeLabel, recoveredLabel, deathsLabel],
+					datasets: [
+						{
+							data: [
+								totalActiveEntityA,
+								countryResponse.TotalRecovered,
+								countryResponse.TotalDeaths,
+							],
+						},
+					],
+				},
+				table: {
+					labels: [activeLabel, recoveredLabel, deathsLabel, confirmedLabel],
+					confirmed: countryResponse.TotalConfirmed,
+					active: totalActiveEntityA,
+					recovered: countryResponse.TotalRecovered,
+					deaths: countryResponse.TotalDeaths,
+				},
 			};
 			entityBData = {
-				confirmed: countryResponse.NewConfirmed,
-				recovered: countryResponse.NewRecovered,
-				deaths: countryResponse.NewDeaths,
+				label: entityBLabel,
+				chart: {
+					labels: [Formatter.formatDate(new Date())],
+					datasets: [
+						{
+							data: [countryResponse.NewConfirmed],
+						},
+						{
+							data: [countryResponse.NewRecovered],
+						},
+						{
+							data: [countryResponse.NewDeaths],
+						},
+					],
+				},
+				table: {
+					labels: [confirmedLabel, recoveredLabel, deathsLabel],
+					confirmed: countryResponse.NewConfirmed,
+					recovered: countryResponse.NewRecovered,
+					deaths: countryResponse.NewDeaths,
+				},
 			};
 			break;
-		case aBComparisonTypes.GLOBAL_VS_COUNTRY_CUMMULATIVE_COMPARISON:
-			entityALabel = "Acumulado - Global";
-			entityBLabel = "Acumulado - Colombia";
+		case aBComparisonTypes.GLOBAL_VS_COUNTRY_CUMULATIVE_COMPARISON:
+			entityALabel = Labels.globalVsCountryCumulativeEntityATitle;
+			entityBLabel = Labels.globalVsCountryCumulativeEntityBTitle;
+			totalActiveEntityA =
+				globalResponse.TotalConfirmed -
+				globalResponse.TotalRecovered -
+				globalResponse.TotalDeaths;
 			entityAData = {
-				confirmed: globalResponse.TotalConfirmed,
-				recovered: globalResponse.TotalRecovered,
-				deaths: globalResponse.TotalDeaths,
+				label: entityALabel,
+				chart: {
+					labels: [activeLabel, recoveredLabel, deathsLabel],
+					datasets: [
+						{
+							data: [
+								totalActiveEntityA,
+								globalResponse.TotalRecovered,
+								globalResponse.TotalDeaths,
+							],
+						},
+					],
+				},
+				table: {
+					labels: [activeLabel, recoveredLabel, deathsLabel, confirmedLabel],
+					confirmed: globalResponse.TotalConfirmed,
+					active: totalActiveEntityA,
+					recovered: globalResponse.TotalRecovered,
+					deaths: globalResponse.TotalDeaths,
+				},
 			};
+
+			totalActiveEntityB =
+				countryResponse.TotalConfirmed -
+				countryResponse.TotalRecovered -
+				countryResponse.TotalDeaths;
 			entityBData = {
-				confirmed: countryResponse.TotalConfirmed,
-				recovered: countryResponse.TotalRecovered,
-				deaths: countryResponse.TotalDeaths,
+				label: entityBLabel,
+				chart: {
+					labels: [activeLabel, recoveredLabel, deathsLabel],
+					datasets: [
+						{
+							data: [
+								totalActiveEntityB,
+								countryResponse.TotalRecovered,
+								countryResponse.TotalDeaths,
+							],
+						},
+					],
+				},
+				table: {
+					labels: [activeLabel, recoveredLabel, deathsLabel, confirmedLabel],
+					confirmed: countryResponse.TotalConfirmed,
+					active: totalActiveEntityB,
+					recovered: countryResponse.TotalRecovered,
+					deaths: countryResponse.TotalDeaths,
+				},
 			};
 			break;
 		default:
-			entityALabel = "Nuevos Casos - Global";
-			entityBLabel = "Nuevos Casos - Colombia";
+			entityALabel = Labels.globalVsCountryNewCasesEntityATitle;
+			entityBLabel = Labels.globalVsCountryNewCasesEntityBTitle;
 			entityAData = {
-				confirmed: globalResponse.NewConfirmed,
-				recovered: globalResponse.NewRecovered,
-				deaths: globalResponse.NewDeaths,
+				label: entityALabel,
+				chart: {
+					labels: [Formatter.formatDate(new Date())],
+					datasets: [
+						{
+							data: [globalResponse.NewConfirmed],
+						},
+						{
+							data: [globalResponse.NewRecovered],
+						},
+						{
+							data: [globalResponse.NewDeaths],
+						},
+					],
+				},
+				table: {
+					labels: [confirmedLabel, recoveredLabel, deathsLabel],
+					confirmed: globalResponse.NewConfirmed,
+					recovered: globalResponse.NewRecovered,
+					deaths: globalResponse.NewDeaths,
+				},
 			};
 			entityBData = {
-				confirmed: countryResponse.NewConfirmed,
-				recovered: countryResponse.NewRecovered,
-				deaths: countryResponse.NewDeaths,
+				label: entityBLabel,
+				chart: {
+					labels: [Formatter.formatDate(new Date())],
+					datasets: [
+						{
+							data: [countryResponse.NewConfirmed],
+						},
+						{
+							data: [countryResponse.NewRecovered],
+						},
+						{
+							data: [countryResponse.NewDeaths],
+						},
+					],
+				},
+				table: {
+					labels: [confirmedLabel, recoveredLabel, deathsLabel],
+					confirmed: countryResponse.NewConfirmed,
+					recovered: countryResponse.NewRecovered,
+					deaths: countryResponse.NewDeaths,
+				},
 			};
 			break;
 	}
 
 	return {
-		entityAData: {
-			label: entityALabel,
-			data: {
-				confirmed: {
-					label: confirmedLabel,
-					value: entityAData.confirmed,
-				},
-				recovered: {
-					label: recoveredLabel,
-					value: entityAData.recovered,
-				},
-				deaths: {
-					label: deathsLabel,
-					value: entityAData.deaths,
-				},
-			},
-		},
-		entityBData: {
-			label: entityBLabel,
-			data: {
-				confirmed: {
-					label: confirmedLabel,
-					value: entityBData.confirmed,
-				},
-				recovered: {
-					label: recoveredLabel,
-					value: entityBData.recovered,
-				},
-				deaths: {
-					label: deathsLabel,
-					value: entityBData.deaths,
-				},
-			},
-		},
+		entityAData,
+		entityBData,
 	};
 };
 

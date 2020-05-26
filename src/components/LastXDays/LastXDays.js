@@ -3,23 +3,35 @@ import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions/index";
 import axios from "../../shared/Axios/Axios";
 import withAjaxRequest from "../../hoc/withAjaxRequest/withAjaxRequest";
-import Chart from "./Chart/Chart";
+import BarChart from "../Charts/Bar/Bar";
 import Table from "./Table/Table";
+import * as Labels from "../../shared/ui/Labels";
 
 const LastXDays = (props) => {
 	useEffect(() => {
-		props.fetchData(props.totalDays, props.isCummulative);
-	}, [props.totalDays, props.isCummulative]);
+		props.fetchData(props.totalDays, props.isCumulative);
+	}, [props.totalDays, props.isCumulative]);
 
 	let content = null;
 	if (props.isDataReady) {
-		const title = props.isCummulative ? "Acumulado" : "Nuevos Casos";
+		const title = props.isCumulative
+			? Labels.cumulativeLabel
+			: Labels.newCasesLabel;
+		//TODO: Externalizar
 		const label = `${title} - Colombia últimos ${props.totalDays} días`;
 
 		content = (
 			<div className="LastXDays">
-				<Chart data={props.data.chart} height={200} />
-				<Table data={props.data.table} label={label} />
+				<BarChart
+					data={props.data.chart}
+					className="LastXDays__chart"
+					isCumulative={props.isCumulative}
+				/>
+				<Table
+					data={props.data.table}
+					label={label}
+					isCumulative={props.isCumulative}
+				/>
 			</div>
 		);
 	}
@@ -36,8 +48,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		fetchData: (totalDays, isCummulative) => {
-			dispatch(actionCreators.fetchLastXDaysData(totalDays, isCummulative));
+		fetchData: (totalDays, isCumulative) => {
+			dispatch(actionCreators.fetchLastXDaysData(totalDays, isCumulative));
 		},
 	};
 };
