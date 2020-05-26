@@ -32,13 +32,13 @@ const reducer = (currentState = initialState, action) => {
 			state.entityAData = null;
 			state.entityBData = null;
 			break;
-		case actionTypes.SET_GLOBAL_CUMMULATIVE_VS_TODAY_COMPARISON_DATA:
+		case actionTypes.SET_GLOBAL_CUMULATIVE_VS_TODAY_COMPARISON_DATA:
 			setABComparisonData(state, action);
 			break;
-		case actionTypes.SET_COUNTRY_CUMMULATIVE_VS_TODAY_COMPARISON_DATA:
+		case actionTypes.SET_COUNTRY_CUMULATIVE_VS_TODAY_COMPARISON_DATA:
 			setABComparisonData(state, action);
 			break;
-		case actionTypes.SET_GLOBAL_VS_COUNTRY_CUMMULATIVE_COMPARISON_DATA:
+		case actionTypes.SET_GLOBAL_VS_COUNTRY_CUMULATIVE_COMPARISON_DATA:
 			setABComparisonData(state, action);
 			break;
 		case actionTypes.SET_GLOBAL_VS_COUNTRY_TODAY_COMPARISON_DATA:
