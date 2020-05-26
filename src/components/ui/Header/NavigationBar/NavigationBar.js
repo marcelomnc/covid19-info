@@ -26,7 +26,7 @@ const NavigationBar = (props) => {
 				<li>
 					<NavLink
 						activeClassName="NavigationItemActive"
-						to="/summary/gvc/cummulative"
+						to="/summary/gvc/cumulative"
 						exact
 					>
 						GvP - Acumulado

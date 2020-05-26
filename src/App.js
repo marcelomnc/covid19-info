@@ -19,7 +19,7 @@ function App() {
 					return (
 						<ABComparison
 							aBComparisonType={
-								ABComparisonTypes.GLOBAL_CUMMULATIVE_VS_TODAY_COMPARISON
+								ABComparisonTypes.GLOBAL_CUMULATIVE_VS_TODAY_COMPARISON
 							}
 						/>
 					);
@@ -32,20 +32,20 @@ function App() {
 					return (
 						<ABComparison
 							aBComparisonType={
-								ABComparisonTypes.COUNTRY_CUMMULATIVE_VS_TODAY_COMPARISON
+								ABComparisonTypes.COUNTRY_CUMULATIVE_VS_TODAY_COMPARISON
 							}
 						/>
 					);
 				}}
 			/>
 			<Route
-				path="/gvc/cummulative"
+				path="/gvc/cumulative"
 				exact
 				render={() => {
 					return (
 						<ABComparison
 							aBComparisonType={
-								ABComparisonTypes.GLOBAL_VS_COUNTRY_CUMMULATIVE_COMPARISON
+								ABComparisonTypes.GLOBAL_VS_COUNTRY_CUMULATIVE_COMPARISON
 							}
 						/>
 					);
@@ -64,10 +64,10 @@ function App() {
 				}}
 			/>
 			<Route
-				path="/lastDays/cummulative"
+				path="/lastDays/cumulative"
 				exact
 				render={() => {
-					return <LastXDays totalDays={7} isCummulative />;
+					return <LastXDays totalDays={7} isCumulative />;
 				}}
 			/>
 			<Route
