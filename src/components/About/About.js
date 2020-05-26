@@ -8,7 +8,7 @@ const About = (props) => {
 		<div className="About">
 			<div className="About__text_container">
 				<p>
-					La aplicación <strong>Covid19-Stats</strong> surge como un proyecto
+					La aplicación <strong>Covid-19 Stats</strong> surge como un proyecto
 					personal para aplicar conocimientos de&nbsp;
 					<a href="https://reactjs.org/" target="blank">
 						React JS

@@ -1,4 +1,4 @@
-export const appLabel = "Covid19-Stats";
+export const appLabel = "Covid-19 Stats";
 export const summaryLabel = "Resumen";
 export const globalLabel = "Global";
 export const colombiaLabel = "Colombia";
