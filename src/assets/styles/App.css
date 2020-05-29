@@ -23,7 +23,7 @@
 
 .AppTable table h2 {
 	color: var(--color-primary);
-	font-size: large;
+	font-size: 15px;
 	font-weight: 900;
 	overflow-wrap: anywhere;
 }
@@ -190,7 +190,7 @@
 }
 
 .ABComparison__table tbody tr {
-	font-size: large;
+	font-size: 15px;
 	font-weight: 700;
 }
 
@@ -263,7 +263,7 @@
 
 .LastXDays__table td {
 	width: 20%;
-	font-size: large;
+	font-size: 15px;
 	font-weight: 700;
 	padding: 0 2%;
 	text-align: right;
@@ -289,6 +289,7 @@
 
 .LastXDays__table.cumulative td {
 	width: 17%;
+	font-size: 13px;
 }
 
 .LastXDays__table.cumulative td:nth-child(1) {
@@ -425,6 +426,10 @@
 
 @media only screen and (max-width: 400px) {
 	.LastXDays__table td {
+		font-size: 14px;
+	}
+
+	.LastXDays__table.cumulative td {
 		font-size: 12px;
 	}
 }
