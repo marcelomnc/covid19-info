@@ -1,6 +1,6 @@
 import React from "react";
 import { Pie } from "react-chartjs-2";
-import * as formatter from "../../../shared/Formatter/Formatter";
+import * as Formatter from "../../../shared/Formatter/Formatter";
 import * as Calc from "../../../shared/Calc/Calc";
 import * as Colors from "../../../shared/ui/Colors";
 
@@ -9,7 +9,7 @@ const PieChart = (props) => {
 		position: "bottom",
 		labels: {
 			fontColor: Colors.primaryColor,
-			fontSize: 16,
+			fontSize: 14,
 			fontStyle: "bold",
 		},
 	};
@@ -46,10 +46,10 @@ const PieChart = (props) => {
 					const label = data.labels[tooltipItem.index];
 					const value =
 						data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
-					const percentage = formatter.formatPercentage(
+					const percentage = Formatter.formatPercentage(
 						Calc.calcPercentage(totalConfirmed, value)
 					);
-					return `${label}: (${percentage}) ${formatter.formatNumber(value)}`;
+					return `${label}: (${percentage}) ${Formatter.formatNumber(value)}`;
 				},
 			},
 		},
