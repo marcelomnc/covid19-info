@@ -18,7 +18,7 @@ const LastXDays = (props) => {
 			? Labels.cumulativeLabel
 			: Labels.newCasesLabel;
 		//TODO: Externalizar
-		const label = `${title} - Colombia últimos ${props.totalDays} días`;
+		const label = `Colombia últimos ${props.totalDays} días - ${title}`;
 
 		content = (
 			<div className="LastXDays">

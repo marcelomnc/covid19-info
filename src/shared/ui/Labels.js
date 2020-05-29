@@ -12,17 +12,11 @@ export const deathsLabel = "Muertos";
 export const confirmedLabel = "Confirmados";
 export const cumulativeLabel = "Acumulado";
 export const newCasesLabel = "Nuevos Casos";
-export const globalCumulativeVsTodayEntityATitle =
-	cumulativeLabel + " - Global";
-export const globalCumulativeVsTodayEntityBTitle = newCasesLabel + " - Global";
-export const countryCumulativeVsTodayEntityATitle =
-	cumulativeLabel + " - Colombia";
-export const countryCumulativeVsTodayEntityBTitle =
-	newCasesLabel + " - Colombia";
-export const globalVsCountryCumulativeEntityATitle =
-	cumulativeLabel + " - Global";
-export const globalVsCountryCumulativeEntityBTitle =
-	cumulativeLabel + " - Colombia";
-export const globalVsCountryNewCasesEntityATitle = newCasesLabel + " - Global";
-export const globalVsCountryNewCasesEntityBTitle =
-	newCasesLabel + " - Colombia";
+export const globalCumulativeVsTodayEntityATitle = `Global - ${cumulativeLabel}`;
+export const globalCumulativeVsTodayEntityBTitle = `Global - ${newCasesLabel}`;
+export const countryCumulativeVsTodayEntityATitle = `Colombia - ${cumulativeLabel}`;
+export const countryCumulativeVsTodayEntityBTitle = `Colombia - ${newCasesLabel}`;
+export const globalVsCountryCumulativeEntityATitle = `Global - ${cumulativeLabel}`;
+export const globalVsCountryCumulativeEntityBTitle = `Colombia - ${cumulativeLabel}`;
+export const globalVsCountryNewCasesEntityATitle = `Global - ${newCasesLabel}`;
+export const globalVsCountryNewCasesEntityBTitle = `Colombia - ${newCasesLabel}`;
