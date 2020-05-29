@@ -9,7 +9,7 @@ export const types = {
 export const getIcon = (type) => {
 	let toRet = null;
 
-	if (type === Types.flagCO) {
+	if (type === types.flagCO) {
 		toRet = flagCOIcon;
 	} else {
 		toRet = globeIcon;
