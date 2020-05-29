@@ -19,7 +19,7 @@ const BarChart = (props) => {
 		position: "bottom",
 		labels: {
 			fontColor: fontColor,
-			fontSize: 16,
+			fontSize: 14,
 			fontStyle: "bold",
 		},
 	};
