@@ -10,8 +10,8 @@ const Table = (props) => {
 	}
 
 	let icon = props.isGlobal
-		? Icons.getIcon(Icons.Types.globe)
-		: Icons.getIcon(Icons.Types.flagCO);
+		? Icons.getIcon(Icons.types.globe)
+		: Icons.getIcon(Icons.types.flagCO);
 
 	return (
 		<div className={classes}>

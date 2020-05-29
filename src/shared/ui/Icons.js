@@ -1,7 +1,7 @@
 import globeIcon from "../../assets/images/Globe.png";
-import coFlagIcon from "../../assets/images/FlagCO.png";
+import flagCOIcon from "../../assets/images/FlagCO.png";
 
-export const Types = {
+export const types = {
 	globe: "globe",
 	flagCO: "flagCO",
 };
@@ -10,7 +10,7 @@ export const getIcon = (type) => {
 	let toRet = null;
 
 	if (type === Types.flagCO) {
-		toRet = coFlagIcon;
+		toRet = flagCOIcon;
 	} else {
 		toRet = globeIcon;
 	}
