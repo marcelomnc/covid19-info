@@ -25,6 +25,10 @@ const ABComparison = (props) => {
 			props.aBComparisonType ===
 				ABComparisonTypes.COUNTRY_CUMULATIVE_VS_TODAY_COMPARISON
 		) {
+			let isGlobal =
+				props.aBComparisonType ===
+				ABComparisonTypes.GLOBAL_CUMULATIVE_VS_TODAY_COMPARISON;
+
 			tmp = (
 				<>
 					<PieChart
@@ -34,6 +38,7 @@ const ABComparison = (props) => {
 					<Table
 						label={props.entityAData.label}
 						data={props.entityAData.table}
+						isGlobal={isGlobal}
 						isCumulative
 					/>
 					<BarChart
@@ -44,6 +49,7 @@ const ABComparison = (props) => {
 					<Table
 						label={props.entityBData.label}
 						data={props.entityBData.table}
+						isGlobal={isGlobal}
 					/>
 				</>
 			);
@@ -60,6 +66,7 @@ const ABComparison = (props) => {
 					<Table
 						label={props.entityAData.label}
 						data={props.entityAData.table}
+						isGlobal
 						isCumulative
 					/>
 					<PieChart
@@ -74,6 +81,7 @@ const ABComparison = (props) => {
 				</>
 			);
 		} else {
+			//Global vs country - new cases
 			tmp = (
 				<>
 					<BarChart
@@ -84,6 +92,7 @@ const ABComparison = (props) => {
 					<Table
 						label={props.entityAData.label}
 						data={props.entityAData.table}
+						isGlobal
 					/>
 					<BarChart
 						label={props.entityBData.label}

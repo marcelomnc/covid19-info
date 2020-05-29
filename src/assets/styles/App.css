@@ -21,13 +21,6 @@
 	font-family: "Roboto", sans-serif;
 }
 
-.AppTable table h2 {
-	color: var(--color-primary);
-	font-size: 15px;
-	font-weight: 900;
-	overflow-wrap: anywhere;
-}
-
 .ModalShow {
 	box-sizing: border-box;
 	position: fixed;
@@ -129,6 +122,25 @@
 .Footer h5 {
 	font-size: 0.6em;
 	font-weight: normal;
+}
+
+.EntityTitle {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.EntityTitle img {
+	height: 30px;
+	width: 30px;
+}
+
+.EntityTitle span {
+	color: var(--color-primary);
+	font-size: 15px;
+	font-weight: 900;
+	overflow-wrap: anywhere;
+	padding-left: 5px;
 }
 
 .ABComparison {
@@ -250,7 +262,7 @@
 
 .LastXDays__table th {
 	text-align: center;
-	padding-bottom: 10px;
+	padding-bottom: 15px;
 }
 
 .LastXDays__table tbody tr:nth-of-type(odd) {

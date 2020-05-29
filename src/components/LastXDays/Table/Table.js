@@ -1,6 +1,7 @@
 import React from "react";
 import * as Formatter from "../../../shared/Formatter/Formatter";
 import * as Calc from "../../../shared/Calc/Calc";
+import * as Icons from "../../../shared/ui/Icons";
 
 const Table = (props) => {
 	let classes = "AppTable LastXDays__table";
@@ -8,13 +9,20 @@ const Table = (props) => {
 		classes += " cumulative";
 	}
 
+	let icon = props.isGlobal
+		? Icons.getIcon(Icons.Types.globe)
+		: Icons.getIcon(Icons.Types.flagCO);
+
 	return (
 		<div className={classes}>
 			<table>
 				<thead>
 					<tr>
 						<th colSpan={props.isCumulative ? 5 : 4}>
-							<h2>{props.label}</h2>
+							<div className="EntityTitle">
+								<img src={icon} alt="Icon" />
+								<span>{props.label}</span>
+							</div>
 						</th>
 					</tr>
 				</thead>
