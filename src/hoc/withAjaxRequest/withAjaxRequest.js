@@ -15,6 +15,7 @@ const withAjaxRequest = (WrappedComponent, axios) => {
 					ajaxRequestInProcess: true,
 					ajaxRequestError: null,
 				});
+
 				return request;
 			});
 
