@@ -69,8 +69,8 @@ const buildDataFromResponse = (aBComparisonType, response) => {
 
 	switch (aBComparisonType) {
 		case aBComparisonTypes.GLOBAL_CUMULATIVE_VS_TODAY_COMPARISON:
-			entityALabel = Labels.globalCumulativeVsTodayEntityATitle;
-			entityBLabel = Labels.globalCumulativeVsTodayEntityBTitle;
+			entityALabel = Labels.globalCumulativeVsNewCasesEntityATitle;
+			entityBLabel = Labels.globalCumulativeVsNewCasesEntityBTitle;
 			totalActiveEntityA =
 				globalResponse.TotalConfirmed -
 				globalResponse.TotalRecovered -
@@ -100,7 +100,9 @@ const buildDataFromResponse = (aBComparisonType, response) => {
 			entityBData = {
 				label: entityBLabel,
 				chart: {
-					labels: [Formatter.formatDate(new Date())],
+					//TODO: Calcular desfases en las fechas !
+					// labels: [Formatter.formatDate(countryResponse.Date)],
+					labels: [""],
 					datasets: [
 						{
 							data: [globalResponse.NewConfirmed],
@@ -122,8 +124,8 @@ const buildDataFromResponse = (aBComparisonType, response) => {
 			};
 			break;
 		case aBComparisonTypes.COUNTRY_CUMULATIVE_VS_TODAY_COMPARISON:
-			entityALabel = Labels.countryCumulativeVsTodayEntityATitle;
-			entityBLabel = Labels.countryCumulativeVsTodayEntityBTitle;
+			entityALabel = Labels.countryCumulativeVsNewCasesEntityATitle;
+			entityBLabel = Labels.countryCumulativeVsNewCasesEntityBTitle;
 			totalActiveEntityA =
 				countryResponse.TotalConfirmed -
 				countryResponse.TotalRecovered -
@@ -153,7 +155,8 @@ const buildDataFromResponse = (aBComparisonType, response) => {
 			entityBData = {
 				label: entityBLabel,
 				chart: {
-					labels: [Formatter.formatDate(new Date())],
+					// labels: [Formatter.formatDate(countryResponse.Date)],
+					labels: [""],
 					datasets: [
 						{
 							data: [countryResponse.NewConfirmed],
@@ -237,7 +240,8 @@ const buildDataFromResponse = (aBComparisonType, response) => {
 			entityAData = {
 				label: entityALabel,
 				chart: {
-					labels: [Formatter.formatDate(new Date())],
+					// labels: [Formatter.formatDate(countryResponse.Date)],
+					labels: [""],
 					datasets: [
 						{
 							data: [globalResponse.NewConfirmed],
@@ -260,7 +264,8 @@ const buildDataFromResponse = (aBComparisonType, response) => {
 			entityBData = {
 				label: entityBLabel,
 				chart: {
-					labels: [Formatter.formatDate(new Date())],
+					// labels: [Formatter.formatDate(countryResponse.Date)],
+					labels: [""],
 					datasets: [
 						{
 							data: [countryResponse.NewConfirmed],
