@@ -1,6 +1,7 @@
 export const formatNumber = (number) => number.toLocaleString();
 
 export const formatDate = (strDate) => {
+	//TODO: Format Date
 	const date = new Date(strDate);
 	return date.toISOString().slice(0, 10);
 };
