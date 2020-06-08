@@ -1,13 +1,14 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/styles/App.css";
+import "./assets/styles/Modal.css";
 import "./assets/styles/LoadingSpinner.css";
 import { Route, Switch, Redirect, withRouter } from "react-router-dom";
-import ABComparison from "./components/ABComparison/ABComparison";
+import Layout from "./hoc/Layout/Layout";
 import * as ABComparisonTypes from "./components/ABComparison/Types";
+import ABComparison from "./components/ABComparison/ABComparison";
 import LastXDays from "./components/LastXDays/LastXDays";
 import About from "./components/About/About";
-import Layout from "./hoc/Layout/Layout";
 
 function App() {
 	let routes = (
