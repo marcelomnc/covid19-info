@@ -2,7 +2,7 @@ import React from "react";
 
 const LoadingSpinner = (props) => {
 	return props.show ? (
-		<div className="LoadingSpinnerContainer">
+		<div className="LoadingSpinner">
 			<div className="lds-ripple">
 				<div></div>
 				<div></div>
