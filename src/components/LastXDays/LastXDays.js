@@ -6,6 +6,7 @@ import withAjaxRequest from "../../hoc/withAjaxRequest/withAjaxRequest";
 import BarChart from "../Charts/Bar/Bar";
 import Table from "./Table/Table";
 import * as Labels from "../../shared/ui/Labels";
+import * as Icons from "../../shared/ui/Icons";
 
 const LastXDays = (props) => {
 	useEffect(() => {
@@ -19,19 +20,22 @@ const LastXDays = (props) => {
 			: Labels.newCasesLabel;
 		//TODO: Externalizar
 		const label = `Colombia últimos ${props.totalDays} días - ${title}`;
+		const icon = Icons.getIcon(Icons.types.flagCO);
 
 		content = (
 			<div className="LastXDays">
-				<BarChart
-					data={props.data.chart}
-					className="LastXDays__chart"
-					isCumulative={props.isCumulative}
-				/>
-				<Table
-					data={props.data.table}
-					label={label}
-					isCumulative={props.isCumulative}
-				/>
+				<div className="Entity">
+					<div className="Entity__title">
+						<img src={icon} alt="Icon" />
+						<span>{label}</span>
+					</div>
+					<BarChart data={props.data.chart} isCumulative={props.isCumulative} />
+					<Table
+						label={label}
+						data={props.data.table}
+						isCumulative={props.isCumulative}
+					/>
+				</div>
 			</div>
 		);
 	}

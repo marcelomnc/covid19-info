@@ -116,7 +116,7 @@ const BarChart = (props) => {
 	};
 
 	return (
-		<div className={props.className}>
+		<div className='Entity__chart'>
 			<Bar data={data} legend={legendOpts} options={options} />
 		</div>
 	);

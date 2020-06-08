@@ -56,7 +56,7 @@ const PieChart = (props) => {
 	};
 
 	return (
-		<div className="ABComparison__chart">
+		<div className="Entity__chart">
 			<Pie data={data} legend={legendOpts} options={options} />
 		</div>
 	);
