@@ -1,33 +1,18 @@
 import React from "react";
 import * as Formatter from "../../../shared/Formatter/Formatter";
 import * as Calc from "../../../shared/Calc/Calc";
-import * as Icons from "../../../shared/ui/Icons";
 
 const Table = (props) => {
-	let classes = "AppTable ABComparison__table";
+	let classes = "Entity__table ABComparison__table";
 	let total = 0;
 	if (props.isCumulative) {
 		classes += " cumulative";
 		total = props.data.active + props.data.recovered + props.data.deaths;
 	}
 
-	let icon = props.isGlobal
-		? Icons.getIcon(Icons.types.globe)
-		: Icons.getIcon(Icons.types.flagCO);
-
 	return (
 		<div className={classes}>
 			<table>
-				<thead>
-					<tr>
-						<th colSpan="2">
-							<div className="EntityTitle">
-								<img src={icon} alt="Icon" />
-								<span>{props.label}</span>
-							</div>
-						</th>
-					</tr>
-				</thead>
 				<tbody>
 					{props.isCumulative ? (
 						<tr>
