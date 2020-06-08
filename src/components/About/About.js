@@ -84,8 +84,8 @@ const About = (props) => {
 				</p>
 
 				<p>
-					<a href="https://github.com/marcelomnc/covid19-info" target="blank">
-						https://github.com/marcelomnc/covid19-info
+					<a href="https://github.com/marcelomnc/covid19-stats" target="blank">
+						https://github.com/marcelomnc/covid19-stats
 					</a>
 				</p>
 
