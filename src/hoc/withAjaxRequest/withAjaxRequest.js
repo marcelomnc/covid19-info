@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import LoadingSpinner from "../../components/ui/LoadingSpinner/LoadingSpinner";
-import Modal from "../../components/ui/Modal/Modal";
+import LoadingSpinner from "../../components/main/LoadingSpinner/LoadingSpinner";
+import Modal from "../../components/main/Modal/Modal";
 
 const withAjaxRequest = (WrappedComponent, axios) => {
 	return class extends Component {

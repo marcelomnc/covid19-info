@@ -1,5 +1,5 @@
 import React from "react";
-import Backdrop from "../Backdrop/Backdrop";
+import Backdrop from "./Backdrop/Backdrop";
 
 const Modal = (props) => {
 	const classToUse = props.show ? "ModalShow" : "ModalHide";

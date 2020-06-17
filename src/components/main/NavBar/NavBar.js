@@ -1,7 +1,7 @@
 import React from "react";
 import { Nav, Navbar, NavDropdown } from "react-bootstrap";
-import logo from "../../../../assets/images/AppLogo.svg";
-import * as Labels from "../../../../shared/ui/Labels";
+import logo from "../../../assets/images/AppLogo.svg";
+import * as Labels from "../../../shared/ui/Labels";
 
 const NavBar = (props) => {
 	return (

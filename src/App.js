@@ -4,7 +4,7 @@ import "./assets/styles/App.css";
 import "./assets/styles/Modal.css";
 import "./assets/styles/LoadingSpinner.css";
 import { Route, Switch, Redirect, withRouter } from "react-router-dom";
-import Layout from "./hoc/Layout/Layout";
+import Layout from "./components/main/Layout/Layout";
 import * as ABComparisonTypes from "./components/ABComparison/Types";
 import ABComparison from "./components/ABComparison/ABComparison";
 import LastXDays from "./components/LastXDays/LastXDays";
