@@ -2,7 +2,6 @@ import * as actionTypes from "../actions/actionTypes";
 import * as aBComparisonTypes from "../../components/ABComparison/Types";
 import axios from "../../shared/Axios/Axios";
 import * as Labels from "../../shared/ui/Labels";
-import * as Formatter from "../../shared/Formatter/Formatter";
 
 const setFetchingABComparisonData = () => {
 	return {
@@ -100,8 +99,6 @@ const buildDataFromResponse = (aBComparisonType, response) => {
 			entityBData = {
 				label: entityBLabel,
 				chart: {
-					//TODO: Calcular desfases en las fechas !
-					// labels: [Formatter.formatDate(countryResponse.Date)],
 					labels: [""],
 					datasets: [
 						{
@@ -155,7 +152,6 @@ const buildDataFromResponse = (aBComparisonType, response) => {
 			entityBData = {
 				label: entityBLabel,
 				chart: {
-					// labels: [Formatter.formatDate(countryResponse.Date)],
 					labels: [""],
 					datasets: [
 						{
@@ -240,7 +236,6 @@ const buildDataFromResponse = (aBComparisonType, response) => {
 			entityAData = {
 				label: entityALabel,
 				chart: {
-					// labels: [Formatter.formatDate(countryResponse.Date)],
 					labels: [""],
 					datasets: [
 						{
@@ -264,7 +259,6 @@ const buildDataFromResponse = (aBComparisonType, response) => {
 			entityBData = {
 				label: entityBLabel,
 				chart: {
-					// labels: [Formatter.formatDate(countryResponse.Date)],
 					labels: [""],
 					datasets: [
 						{
