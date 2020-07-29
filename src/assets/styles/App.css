@@ -8,6 +8,8 @@
 	--color-secondary: #27436b;
 	--color-tertiary: #9eb3dd;
 	--primary-font-color: rgb(255, 255, 255);
+	--primary-link-color: #cbbae8;
+	--primary-link-hover-color: #32728f;
 
 	--table-row-color-1: rgba(34, 41, 83, 0.8);
 	--table-row-color-2: rgba(34, 41, 83, 0.7);
@@ -232,61 +234,35 @@
 
 .About {
 	height: 100%;
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	grid-template-rows: repeat(2, 1fr);
-	color: var(--primary-font-color);
-	box-sizing: border-box;
-	margin: 0 6rem;
-}
-
-.About__text_container {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
-	text-align: justify;
+	color: var(--primary-font-color);
 }
 
-.About__tech_logos_container {
-	box-sizing: border-box;
-	padding: 0 0 1rem 0;
-	margin: 2rem;
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	grid-template-rows: repeat(2, 1fr);
-	background-color: var(--color-secondary);
-	justify-items: center;
+.About a {
+	color: var(--primary-link-color);
 }
 
-.About__tech_logos_container > img {
-	height: 50%;
+.About a:hover {
+	color: var(--primary-link-hover-color);
+	text-decoration: none;
 }
 
-.About__tech_logos_container > img:nth-child(1) {
-	grid-column-start: 1;
-	grid-column-end: 3;
-	animation: logo-spin infinite 10s linear;
+.About__row_app_version {
+	justify-content: flex-end;
 }
 
-.About__tech_logos_container > img:nth-child(2) {
-	max-width: 100%;
-	grid-column-start: 1;
-	grid-column-end: 3;
+.About__row_img {
+	flex-grow: 1;
+	margin-bottom: 15px;
 }
 
-.About__app_logo_container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	box-sizing: border-box;
-	padding: 1rem 0;
-	margin: 2rem;
-	background-color: var(--color-secondary);
-}
-
-.About__app_logo_container > img {
+.About__img_container {
 	height: 100%;
-	animation: logo-spin infinite 15s linear;
+	min-height: 300px;
+	max-height: 1000px;
+	background-image: url("../images/CoronaVirus.jpg");
+	background-size: cover;
 }
 
 @keyframes logo-spin {
@@ -331,19 +307,7 @@
 	}
 
 	.About {
-		display: flex;
-		flex-direction: column;
-		margin: 2rem 1rem 0 1rem;
-	}
-
-	.About__tech_logos_container {
-		height: 300px;
-		padding: 1rem 0;
-	}
-
-	.About__app_logo_container {
-		height: 300px;
-		order: 4;
+		height: unset;
 	}
 }
 
