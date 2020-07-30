@@ -2,7 +2,7 @@
 
 React-JS application (create-react-app) to display covid19 statistical information data from public APIs.
 
-![Release](https://img.shields.io/github/v/release/marcelomnc/covid19-stats) ![Tag](https://img.shields.io/github/v/tag/marcelomnc/covid19-stats) ![Languages Count](https://img.shields.io/github/languages/count/marcelomnc/covid19-stats) ![Top Language](https://img.shields.io/github/languages/top/marcelomnc/covid19-stats) ![Repo Size](https://img.shields.io/github/repo-size/marcelomnc/covid19-stats) ![Code Size](https://img.shields.io/github/languages/code-size/marcelomnc/covid19-stats)
+![Tag](https://img.shields.io/github/v/tag/marcelomnc/covid19-stats) ![Languages Count](https://img.shields.io/github/languages/count/marcelomnc/covid19-stats) ![Top Language](https://img.shields.io/github/languages/top/marcelomnc/covid19-stats) ![Repo Size](https://img.shields.io/github/repo-size/marcelomnc/covid19-stats) ![Code Size](https://img.shields.io/github/languages/code-size/marcelomnc/covid19-stats)
 
 ## Branches
 
