@@ -1,3 +1,18 @@
+# covid19-stats
+
+React-JS application (create-react-app) to display covid19 statistical information data from public APIs.
+
+![Release](https://img.shields.io/github/v/release/marcelomnc/covid19-stats) ![Tag](https://img.shields.io/github/v/tag/marcelomnc/covid19-stats) ![Languages Count](https://img.shields.io/github/languages/count/marcelomnc/covid19-stats) ![Top Language](https://img.shields.io/github/languages/top/marcelomnc/covid19-stats) ![Repo Size](https://img.shields.io/github/repo-size/marcelomnc/covid19-stats) ![Code Size](https://img.shields.io/github/languages/code-size/marcelomnc/covid19-stats)
+
+## Branches
+
+| develop                                                                                                                            | master                                                                                                                            |
+| ---------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| ![Google Cloud Build Status](https://storage.googleapis.com/covid19-stats-develop-build-status-badges/last-build-status-badge.svg) | ![Google Cloud Build Status](https://storage.googleapis.com/covid19-stats-master-build-status-badges/last-build-status-badge.svg) |
+| [Go to webapp](https://covid19-stats-284518.web.app) | [Go to webapp](https://covid19-stats-ccdf8.web.app)
+
+The application displays statistical information data obtained from the **Coronavirus COVID19 API** [(covid19api.com)](https://documenter.getpostman.com/view/10808728/SzS8rjbc?version=latest) public API.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
