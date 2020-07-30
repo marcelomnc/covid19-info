@@ -8,7 +8,7 @@ React-JS application (create-react-app) to display covid19 statistical informati
 
 | develop                                                                                                                            | master                                                                                                                            |
 | ---------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| ![Google Cloud Build Status](https://storage.googleapis.com/covid19-stats-develop-build-status-badges/last-build-status-badge.svg) | ![Google Cloud Build Status](https://storage.googleapis.com/covid19-stats-master-build-status-badges/last-build-status-badge.svg) |
+| ![Google Cloud Build Status DEV](https://storage.googleapis.com/covid19-stats-develop-build-status-badges/last-build-status-badge.svg) | ![Google Cloud Build Status PROD](https://storage.googleapis.com/covid19-stats-master-build-status-badges/last-build-status-badge.svg) |
 | [Go to webapp](https://covid19-stats-284518.web.app) | [Go to webapp](https://covid19-stats-ccdf8.web.app)
 
 The application displays statistical information data obtained from the **Coronavirus COVID19 API** [(covid19api.com)](https://documenter.getpostman.com/view/10808728/SzS8rjbc?version=latest) public API.
