@@ -1,0 +1,322 @@
+:root {
+	--stat-confirmed: rgb(18, 159, 194);
+	--stat-deaths: rgb(231, 70, 49);
+	--stat-active: rgb(255, 157, 0);
+	--stat-recovered: rgb(16, 194, 37);
+
+	--color-primary: rgb(34, 41, 83);
+	--color-secondary: #27436b;
+	--color-tertiary: #9eb3dd;
+	--primary-font-color: rgb(255, 255, 255);
+	--primary-link-color: #cbbae8;
+	--primary-link-hover-color: #32728f;
+
+	--table-row-color-1: rgba(34, 41, 83, 0.8);
+	--table-row-color-2: rgba(34, 41, 83, 0.7);
+
+	--shadow-color: rgb(0, 0, 0);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "Roboto", sans-serif;
+}
+
+.RootContainer {
+	height: 100vh;
+	display: flex;
+	flex-flow: column;
+	background-color: var(--color-primary);
+	overflow: auto;
+}
+
+.Main {
+	flex: 1;
+	padding: 0 10px;
+}
+
+.NavBar {
+	background-color: var(--color-secondary);
+}
+
+.NavBar__brand {
+	font-size: 1.3rem;
+	font-weight: bold;
+	text-shadow: 4px 4px 3px var(--shadow-color);
+}
+
+.NavBar__brand__logo {
+	animation: logo-spin infinite 7s linear;
+}
+
+.Nav.navbar-nav > .nav-item > .dropdown-menu {
+	background-color: var(--color-secondary);
+}
+
+.Nav.navbar-nav > .nav-link,
+.Nav > .nav-item > .nav-link,
+.Nav.navbar-nav > .nav-item > .dropdown-menu > .dropdown-item {
+	color: var(--primary-font-color);
+}
+
+.Nav.navbar-nav > .nav-item > .dropdown-menu > .dropdown-item:hover {
+	background-color: var(--color-tertiary);
+}
+
+.Footer {
+	color: var(--primary-font-color);
+	padding: 0 5px;
+	font-size: 9px;
+	height: 20px;
+}
+
+.Entity {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: 40px 1fr;
+	box-sizing: border-box;
+	margin: 15px;
+	padding: 20px;
+	background-color: var(--color-tertiary);
+	border-radius: 20px;
+	box-shadow: 10px 10px 10px var(--shadow-color);
+	height: 50%;
+}
+
+.Entity__title {
+	margin: auto;
+	text-align: center;
+	grid-column-start: 1;
+	grid-column-end: 3;
+}
+
+.Entity__title img {
+	height: 30px;
+	width: 30px;
+}
+
+.Entity__title span {
+	color: var(--color-primary);
+	font-size: 15px;
+	font-weight: 900;
+	padding-left: 5px;
+	vertical-align: middle;
+	overflow-wrap: anywhere;
+}
+
+.Entity__chart {
+	padding-top: 10px;
+	min-height: 250px;
+}
+
+.Entity__table {
+	padding-top: 10px;
+}
+
+.Entity__table table {
+	width: 100%;
+	height: 100%;
+}
+
+.ABComparison {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.ABComparison__table td {
+	vertical-align: middle;
+	padding: 0 15px;
+	text-align: right;
+	width: 50%;
+}
+
+.ABComparison__table tbody td:nth-child(1) {
+	text-align: left;
+}
+
+.ABComparison__table tbody tr:nth-of-type(odd) {
+	background-color: var(--table-row-color-1);
+}
+
+.ABComparison__table tbody tr:nth-of-type(even) {
+	background-color: var(--table-row-color-2);
+}
+
+.ABComparison__table tbody tr {
+	font-size: 15px;
+	font-weight: 700;
+}
+
+.ABComparison__table tbody tr:nth-child(1) {
+	color: var(--stat-confirmed);
+}
+
+.ABComparison__table tbody tr:nth-child(2) {
+	color: var(--stat-recovered);
+}
+
+.ABComparison__table tbody tr:nth-child(3) {
+	color: var(--stat-deaths);
+}
+
+.ABComparison__table.cumulative tbody tr:nth-child(1) {
+	color: var(--stat-active);
+}
+
+.ABComparison__table.cumulative tbody tr:nth-child(4) {
+	color: var(--stat-confirmed);
+	border-top: 2pt solid rgba(0, 0, 0, 1);
+}
+
+.LastXDays {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.LastXDays .Entity {
+	height: 100%;
+}
+
+.LastXDays__table tr:nth-of-type(odd) {
+	background-color: var(--table-row-color-1);
+}
+
+.LastXDays__table tr:nth-of-type(even) {
+	background-color: var(--table-row-color-2);
+}
+
+.LastXDays__table td {
+	width: 20%;
+	font-size: 15px;
+	font-weight: 700;
+	padding: 0 2%;
+	text-align: right;
+}
+
+.LastXDays__table td:nth-child(1) {
+	width: 30%;
+	text-align: center;
+	color: var(--primary-font-color);
+}
+
+.LastXDays__table td:nth-child(2) {
+	color: var(--stat-confirmed);
+}
+
+.LastXDays__table td:nth-child(3) {
+	color: var(--stat-recovered);
+}
+
+.LastXDays__table td:nth-child(4) {
+	color: var(--stat-deaths);
+}
+
+.LastXDays__table.cumulative td {
+	width: 17%;
+	font-size: 13px;
+}
+
+.LastXDays__table.cumulative td:nth-child(1) {
+	width: 30%;
+}
+
+.LastXDays__table.cumulative td:nth-child(2) {
+	color: var(--stat-active);
+}
+
+.LastXDays__table.cumulative td:nth-child(5) {
+	color: var(--stat-confirmed);
+	border-left: 2px solid rgba(0, 0, 0, 1);
+}
+
+.About {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	color: var(--primary-font-color);
+}
+
+.About a {
+	color: var(--primary-link-color);
+}
+
+.About a:hover {
+	color: var(--primary-link-hover-color);
+	text-decoration: none;
+}
+
+.About__row_app_version {
+	justify-content: flex-end;
+}
+
+.About__row_img {
+	flex-grow: 1;
+	margin-bottom: 15px;
+}
+
+.About__img_container {
+	height: 100%;
+	min-height: 300px;
+	max-height: 1000px;
+	background-image: url("../images/CoronaVirus.jpg");
+	background-size: cover;
+}
+
+@keyframes logo-spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@media only screen and (max-width: 700px) {
+	.RootContainer {
+		min-height: 100vh;
+		height: unset;
+	}
+
+	.Entity {
+		display: flex;
+		flex-direction: column;
+		height: unset;
+	}
+
+	.LastXDays .Entity {
+		height: unset;
+	}
+
+	.Entity__chart {
+		min-height: 400px;
+	}
+
+	.Entity__table table {
+		margin-top: 10px;
+	}
+
+	.ABComparison__table td {
+		padding: 15px 15px;
+	}
+
+	.LastXDays__table td {
+		padding: 15px 2px;
+	}
+
+	.About {
+		height: unset;
+	}
+}
+
+@media only screen and (max-width: 400px) {
+	.LastXDays__table td {
+		font-size: 14px;
+	}
+
+	.LastXDays__table.cumulative td {
+		font-size: 12px;
+	}
+}

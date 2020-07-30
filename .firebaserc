@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "DEV": "covid19-stats-284518",
+    "PROD": "covid19-stats-ccdf8"
+  }
+}

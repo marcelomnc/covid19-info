@@ -1,0 +1,10 @@
+export const primaryColor = "rgb(34, 41, 83)";
+export const chartsBorderColor = "rgba(255, 255, 255, 0.5)";
+export const activeColor = "rgb(255, 157, 0)";
+export const recoveredColor = "rgb(16, 194, 37)";
+export const deathsColor = "rgb(231, 70, 49)";
+export const confirmedColor = "rgb(18, 159, 194)";
+export const activeHoverColor = "rgba(255, 157, 0, 0.4)";
+export const recoveredHoverColor = "rgba(16, 194, 37, 0.2)";
+export const deathsHoverColor = "rgba(231, 70, 49, 0.4)";
+export const confirmedHoverColor = "rgba(18, 159, 194, 0.4)";

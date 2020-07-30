@@ -1,0 +1,19 @@
+steps:
+  - name: "gcr.io/cloud-builders/npm"
+    args: ["install"]
+    id: Install dependencies with npm
+  - name: "gcr.io/cloud-builders/npm"
+    args: ["run", "build"]
+    env:
+      - "REACT_APP_CODEBASE_VERSION=commit-$SHORT_SHA"
+    id: Create an optimized production build with npm
+  - name: "gcr.io/$PROJECT_ID/firebase"
+    args:
+      [
+        "deploy",
+        "-P",
+        "DEV",
+        "-m",
+        "Deploy from google cloud build trigger to DEV",
+      ]
+    id: Deploy to Firebase with firebase
