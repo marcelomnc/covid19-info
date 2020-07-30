@@ -7,7 +7,11 @@ const About = (props) => {
 	return (
 		<Container className="About" fluid="md">
 			<Row className="About__row_app_version">
-				<p>v1.0.0</p>
+				<p>
+					{process.env.REACT_APP_CODEBASE_VERSION
+						? process.env.REACT_APP_CODEBASE_VERSION
+						: "VersionNotSet"}
+				</p>
 			</Row>
 			<Row>
 				<Col>
