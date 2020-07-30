@@ -10,7 +10,7 @@ const About = (props) => {
 				<p>
 					{process.env.REACT_APP_CODEBASE_VERSION
 						? process.env.REACT_APP_CODEBASE_VERSION
-						: "VersionNotSet"}
+						: "vX.X.X"}
 				</p>
 			</Row>
 			<Row>
