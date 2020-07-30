@@ -5,7 +5,7 @@ steps:
   - name: "gcr.io/cloud-builders/npm"
     args: ["run", "build"]
     env:
-      - "REACT_APP_CODEBASE_VERSION=$TAG_NAME"
+      - "REACT_APP_CODEBASE_VERSION=v$TAG_NAME"
     id: Create an optimized production build with npm
   - name: "gcr.io/$PROJECT_ID/firebase"
     args:
